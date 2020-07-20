@@ -11,7 +11,6 @@ public class RectangleTest {
 		Rectangle r2 = new Rectangle();
 		System.out.println(r2.length);
 		System.out.println(r2.width);
-
 	}
 
 }

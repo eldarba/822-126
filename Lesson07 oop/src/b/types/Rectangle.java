@@ -3,8 +3,9 @@ package b.types;
 public class Rectangle {
 
 	// attributes
-	int length;
-	int width;
+	int length; // primitive - simple type
+	int width; // primitive - simple type
+	String color; // complex type
 
 	// CTOR (method for object creation)
 	Rectangle() {

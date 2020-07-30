@@ -25,7 +25,7 @@ public class Demo1VarArgs {
 	}
 
 	public static int sum(int... nums) {
-		// in the method nums is an array
+		// in the method nums is array
 		System.out.println(Arrays.toString(nums));
 		int sum = 0;
 		for (int i = 0; i < nums.length; i++) {

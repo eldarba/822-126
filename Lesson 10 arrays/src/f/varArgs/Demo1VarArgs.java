@@ -9,11 +9,14 @@ public class Demo1VarArgs {
 		System.out.println(sum(5, 3));
 		System.out.println(sum(5, 3, 2));
 		System.out.println(sum(5, 3, 2, 6, 6, 6));
+		// a varargs method can get the arguments one by one
 		System.out.println(sum(5, 3, 2, 3, 4, 8, 8, 8));
 		System.out.println(sum());
 
+		// a varargs method can get the arguments as an array
 		int[] arr = { 2, 2, 2 };
-		System.out.println(sum(arr));
+		int x = sum(arr);
+		System.out.println(x);
 
 	}
 

@@ -2,6 +2,12 @@ package a.homework;
 
 import java.util.Arrays;
 
+/*
+ * Create a class that creates an array[10] of numbers with 
+ * 
+ * random values between 0-100 and prints the total sum and the average
+ * */
+
 public class Tar1 {
 
 	public static void main(String[] args) {

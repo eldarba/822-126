@@ -117,6 +117,15 @@ public class Client {
 	 * getFortune() : float – returns the sum of client balance + total account
 	 * balance.
 	 */
+	public float getFortune() {
+		float fortune = this.balance;
+		for (Account account : accounts) {
+			if (account != null) {
+				fortune += account.getBalance();
+			}
+		}
+		return fortune;
+	}
 
 	/**
 	 * log the operation - create a log and send to the logger

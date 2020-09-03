@@ -96,4 +96,22 @@ public class Bank {
 		logger.log(log);
 	}
 
+	public void viewLogs() {
+		System.out.println("NOT SUPPORTED YET");
+	}
+
+	public void startAccountUpdater() {
+		System.out.println("NOT SUPPORTED YET");
+	}
+
+	/** returns the specified client or null if not exist */
+	public Client getClient(int clientId) {
+		for (Client client : clients) {
+			if (client != null && client.getId() == clientId) {
+				return client;
+			}
+		}
+		return null;
+	}
+
 }

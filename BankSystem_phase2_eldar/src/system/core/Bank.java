@@ -65,6 +65,24 @@ public class Bank {
 		System.out.println("client with id " + clientId + " not found");
 	}
 
+	/** get an array of all bank clients (without null elements) */
+	public Client[] getClients() {
+		Client[] temp = new Client[clients.length];
+		int index = 0;
+		// copy elements
+		for (Client client : this.clients) {
+			if (client != null) {
+				temp[index++] = client;
+			}
+		}
+
+		// create a temp array of the right length
+		Client[] theClients = new Client[index];
+		// copy element to the temp array
+		System.arraycopy(temp, 0, theClients, 0, index);
+		return theClients;
+	}
+
 	/**
 	 * log the operation - create a log and send to the logger
 	 * 

@@ -94,6 +94,13 @@ public class Client {
 		logTheOperation("commission for withdraw", commission);
 	}
 
+	/*
+	 * autoUpdateAccounts() : void – run over the accounts, calculate the amount to
+	 * add according to the client interest (meanwhile it is zero) and add it to
+	 * each account balance. Use the interest data member in your calculation. Log
+	 * this operation.
+	 */
+
 	/**
 	 * log the operation - create a log and send to the logger
 	 * 

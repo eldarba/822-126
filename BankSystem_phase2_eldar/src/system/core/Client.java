@@ -68,7 +68,38 @@ public class Client {
 		System.out.println("account with id " + accountId + " not found");
 	}
 
-	// log the operation - create a log and send to the logger
+	/*
+	 * deposit(float) : void - implement to add the amount to client's balance
+	 * according to the commission (which is now zero). Use the commission data
+	 * member in your calculation). log the operation
+	 */
+	public void deposit(float amount) {
+		this.balance += amount;
+		float commission = amount * this.commissionRate;
+		this.balance -= commission;
+		logTheOperation("deposit", amount);
+		logTheOperation("commition for deposit", amount);
+	}
+
+	/*
+	 * withdraw(float) : void - implement to remove the amount from client's balance
+	 * according to the commission (which is now zero). Use the commission data
+	 * member in your calculation). log the operation
+	 */
+	public void withdraw(float amount) {
+		this.balance -= amount;
+		float commission = amount * this.commissionRate;
+		this.balance -= commission;
+		logTheOperation("deposit", amount);
+		logTheOperation("commition for withdraw", amount);
+	}
+
+	/**
+	 * log the operation - create a log and send to the logger
+	 * 
+	 * @param description description of the action
+	 * @param amount      the amount of the operation
+	 */
 	private void logTheOperation(String description, float amount) {
 		long timestamp = System.currentTimeMillis();
 		int clientId = this.id;

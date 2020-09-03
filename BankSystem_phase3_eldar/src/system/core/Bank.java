@@ -7,11 +7,22 @@ public class Bank {
 	private Object accountUpdater;
 	private float balance; // bank money from clients commissions
 
-	// CTOR
-	public Bank() {
+	// The Singleton Design Pattern - only one bank in the system
+	// ===========================================================
+	// 1. singleton - the instance
+	private static Bank instance = new Bank();
+
+	// 2. singleton - the instance
+	private Bank() {
 		clients = new Client[100];
 		logger = new Logger(null);
 	}
+
+	// 3. singleton - the getter
+	public static Bank getInstance() {
+		return instance;
+	}
+	// ===========================================================
 
 	public float getBalance() {
 		return balance;

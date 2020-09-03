@@ -24,7 +24,7 @@ public class BankTest {
 		 */
 
 		// create a bank
-		Bank bank = new Bank();
+		Bank bank = Bank.getInstance();
 		// add 3 clients
 		bank.addClient(new Client(1, "aaa", 10_000));
 		bank.addClient(new Client(2, "bbb", 15_000));

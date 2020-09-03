@@ -113,6 +113,11 @@ public class Client {
 		}
 	}
 
+	/*
+	 * getFortune() : float – returns the sum of client balance + total account
+	 * balance.
+	 */
+
 	/**
 	 * log the operation - create a log and send to the logger
 	 * 

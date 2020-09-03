@@ -34,7 +34,7 @@ public class Client {
 				return;
 			}
 		}
-		System.out.println("account not added - you have 5 accounts");
+		System.out.println("account not added - you have " + accounts.length + " accounts");
 	}
 
 	/*

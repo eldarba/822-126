@@ -46,7 +46,23 @@ public class Bank {
 				return;
 			}
 		}
-		System.out.println("client not added - you have 100 clients");
+		System.out.println("client not added - you have " + clients.length + " clients");
+	}
+
+	/**
+	 * removeClient(int id) : void - remove the client with the same id from the
+	 * array (by assigning a 'null' value to the array[position]). Log the operation
+	 */
+	public void removeClient(int clientId) {
+		for (int i = 0; i < clients.length; i++) {
+			Client curr = clients[i];
+			if (curr != null && curr.getId() == clientId) {
+				clients[i] = null; // remove the client
+				logTheOperation("client removed from bank", curr.getFortune(), clientId);
+				return;
+			}
+		}
+		System.out.println("client with id " + clientId + " not found");
 	}
 
 	/**

@@ -100,6 +100,18 @@ public class Client {
 	 * each account balance. Use the interest data member in your calculation. Log
 	 * this operation.
 	 */
+	public void autoUpdateAccounts() {
+		for (Account account : accounts) {
+			if (account != null) {
+				// calculate the interest
+				float interest = account.getBalance() * this.interestRate;
+				// add the interest to the acount's balance
+				account.setBalance(account.getBalance() + interest);
+				// log the operation
+				logTheOperation("autoUpdateAccount id " + account.getId(), interest);
+			}
+		}
+	}
 
 	/**
 	 * log the operation - create a log and send to the logger

@@ -78,7 +78,7 @@ public class Client {
 		float commission = amount * this.commissionRate;
 		this.balance -= commission;
 		logTheOperation("deposit", amount);
-		logTheOperation("commition for deposit", amount);
+		logTheOperation("commission for deposit", commission);
 	}
 
 	/*
@@ -91,7 +91,7 @@ public class Client {
 		float commission = amount * this.commissionRate;
 		this.balance -= commission;
 		logTheOperation("deposit", amount);
-		logTheOperation("commition for withdraw", amount);
+		logTheOperation("commission for withdraw", commission);
 	}
 
 	/**

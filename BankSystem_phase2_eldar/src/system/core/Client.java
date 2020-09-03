@@ -10,6 +10,14 @@ public class Client {
 	private float interestRate;
 	private Logger logger;
 
+	public Client(int id, String name, float balance) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.balance = balance;
+		logger = new Logger(null);
+	}
+
 	/**
 	 * add the account to the array
 	 * 
@@ -22,26 +30,50 @@ public class Client {
 		for (int i = 0; i < accounts.length; i++) {
 			if (accounts[i] == null) {
 				accounts[i] = account;
-				// log the operation - create a log and send to the logger
-				long timestamp = System.currentTimeMillis();
-				int clientId = this.id;
-				String description = "account added to client";
-				float amount = account.getBalance();
-				Log log = new Log(timestamp, clientId, description, amount);
-				logger.log(log);
-				//
+				logTheOperation("account added to client", account.getBalance());
 				return;
 			}
 		}
 		System.out.println("account not added - you have 5 accounts");
 	}
 
-	public Client(int id, String name, float balance) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.balance = balance;
-		logger = new Logger(null);
+	/*
+	 * getAccount(int index) : Account – returns the account of the specified index
+	 * or null if does not exist
+	 */
+	public Account getAccount(int index) {
+		if (index >= 0 && index < accounts.length) {
+			return accounts[index];
+		}
+		return null;
+	}
+
+	/*
+	 * remove account (int id) : void - remove the account with the same id from the
+	 * array (by assigning a 'null' value to the array[position]) & transfers the
+	 * money to the clients balance. Log the operation via creating Log object with
+	 * appropriate data and sending it to the Logger.log(..) method.
+	 */
+	public void removeAccount(int accountId) {
+
+		for (int i = 0; i < accounts.length; i++) {
+			Account curr = accounts[i];
+			if (curr.getId() == accountId) {
+				accounts[i] = null; // remove from the array
+				this.balance += curr.getBalance(); // transfers the money to the clients balance
+				logTheOperation("removeAccount from client", curr.getBalance());
+				return; // exit the loop - exit the method
+			}
+		}
+		System.out.println("account with id " + accountId + " not found");
+	}
+
+	// log the operation - create a log and send to the logger
+	private void logTheOperation(String description, float amount) {
+		long timestamp = System.currentTimeMillis();
+		int clientId = this.id;
+		Log log = new Log(timestamp, clientId, description, amount);
+		logger.log(log);
 	}
 
 	public String getName() {

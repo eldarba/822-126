@@ -2,13 +2,39 @@ package system.core;
 
 public class Client {
 
-	private int id;
+	private int id; // this field is used for equality check
 	private String name;
 	private float balance;
 	private Account[] accounts = new Account[5];
-	private float commissionRate;
-	private float interestRate;
+
+	// protected fields can be accessed from all sub classes
+	protected float commissionRate;
+	protected float interestRate;
+
 	private Logger logger;
+
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		result = prime * result + id;
+//		return result;
+//	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Client)) {
+			return false;
+		}
+		Client other = (Client) obj;
+		if (id != other.id) {
+			return false;
+		}
+		return true;
+	}
 
 	public Client(int id, String name, float balance) {
 		super();
@@ -76,6 +102,8 @@ public class Client {
 	public void deposit(float amount) {
 		this.balance += amount;
 		float commission = amount * this.commissionRate;
+		// transfer the commission to the bank
+		Bank.getInstance().addCommission(commission);
 		this.balance -= commission;
 		logTheOperation("deposit", amount);
 		logTheOperation("commission for deposit", commission);
@@ -89,6 +117,8 @@ public class Client {
 	public void withdraw(float amount) {
 		this.balance -= amount;
 		float commission = amount * this.commissionRate;
+		// transfer the commission to the bank
+		Bank.getInstance().addCommission(commission);
 		this.balance -= commission;
 		logTheOperation("deposit", amount);
 		logTheOperation("commission for withdraw", commission);

@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import system.core.Account;
 import system.core.Bank;
+import system.core.BankAsEnum;
 import system.core.Client;
 
 public class BankTest {
@@ -25,8 +26,10 @@ public class BankTest {
 
 		// create a bank
 		Bank bank = Bank.getInstance();
+		BankAsEnum bankAsEnum = BankAsEnum.INSTANCE;
 		// add 3 clients
 		bank.addClient(new Client(1, "aaa", 10_000));
+//		bankAsEnum.addClient(new Client(1, "aaa", 10_000));
 		bank.addClient(new Client(2, "bbb", 15_000));
 		bank.addClient(new Client(3, "ccc", 7_000));
 
@@ -39,7 +42,9 @@ public class BankTest {
 		bank.getClient(2).addAccount(new Account(102, 350_000));
 
 		// print all bank clients
-		System.out.println(Arrays.toString(bank.getClients()));
+//		System.out.println(Arrays.toString(bank.getClients()));
+
+		bank.printClientList();
 
 		// remove client 2
 		bank.removeClient(2);

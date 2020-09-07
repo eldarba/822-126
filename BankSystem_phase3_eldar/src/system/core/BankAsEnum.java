@@ -1,32 +1,13 @@
 package system.core;
 
-public class Bank {
+public enum BankAsEnum {
+
+	INSTANCE; // this is the singleton
 
 	private Client[] clients;
 	private Logger logger;
 	private Object accountUpdater;
 	private float balance; // bank money from clients commissions
-
-	public void addCommission(float commission) {
-		this.balance += commission;
-	}
-
-	// The Singleton Design Pattern - only one bank in the system
-	// ===========================================================
-	// 1. singleton - the instance
-	private static Bank instance = new Bank();
-
-	// 2. singleton - the instance
-	private Bank() {
-		clients = new Client[100];
-		logger = new Logger(null);
-	}
-
-	// 3. singleton - the getter
-	public static Bank getInstance() {
-		return instance;
-	}
-	// ===========================================================
 
 	public float getBalance() {
 		return balance;
@@ -127,20 +108,6 @@ public class Bank {
 			}
 		}
 		return null;
-	}
-
-	/**
-	 * Add a new method – printClientList() : void that prints the client details
-	 * using the new toString() implementation you'll create in the next part.
-	 */
-	public void printClientList() {
-		System.out.println("\n==== Client List ====");
-		for (Client client : clients) {
-			if (client != null) {
-				System.out.println(client);
-			}
-		}
-		System.out.println("==== =========== ====\n");
 	}
 
 }

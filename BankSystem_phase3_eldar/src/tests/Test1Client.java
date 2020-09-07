@@ -2,11 +2,12 @@ package tests;
 
 import system.core.Account;
 import system.core.Client;
+import system.core.RegularClient;
 
 public class Test1Client {
 
 	public static void main(String[] args) {
-		Client client = new Client(101, "Dov", 24000);
+		Client client = new RegularClient(101, "Dov", 24000);
 		Account ac1 = new Account(111, 100000);
 		Account ac2 = new Account(222, 30000);
 		Account ac3 = new Account(333, 100000);
@@ -25,7 +26,7 @@ public class Test1Client {
 		System.out.println(client.getAccounts()[0].getBalance()); // pikadon
 
 		// add account test
-		Client c = new Client(1, "aaa", 1500);
+		Client c = new RegularClient(1, "aaa", 1500);
 		c.addAccount(new Account(101, 20_000));
 		c.addAccount(new Account(102, 50_000));
 

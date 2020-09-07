@@ -4,8 +4,9 @@ import java.util.Arrays;
 
 import system.core.Account;
 import system.core.Bank;
-import system.core.BankAsEnum;
 import system.core.Client;
+import system.core.GoldClient;
+import system.core.PlatinumClient;
 import system.core.RegularClient;
 
 public class BankTest {
@@ -27,12 +28,12 @@ public class BankTest {
 
 		// create a bank
 		Bank bank = Bank.getInstance();
-		BankAsEnum bankAsEnum = BankAsEnum.INSTANCE;
+//		BankAsEnum bankAsEnum = BankAsEnum.INSTANCE;
 		// add 3 clients
-		bank.addClient(new Client(1, "aaa", 10_000));
+		bank.addClient(new RegularClient(1, "aaa", 10_000));
 //		bankAsEnum.addClient(new Client(1, "aaa", 10_000));
-		bank.addClient(new Client(2, "bbb", 15_000));
-		bank.addClient(new Client(3, "ccc", 7_000));
+		bank.addClient(new GoldClient(2, "bbb", 15_000));
+		bank.addClient(new PlatinumClient(3, "ccc", 7_000));
 
 		// deposit
 		bank.getClient(1).deposit(100);

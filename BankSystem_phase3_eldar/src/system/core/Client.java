@@ -1,6 +1,6 @@
 package system.core;
 
-public class Client {
+public abstract class Client {
 
 	private int id; // this field is used for equality check
 	private String name;

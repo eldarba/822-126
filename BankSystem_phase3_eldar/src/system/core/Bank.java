@@ -3,8 +3,8 @@ package system.core;
 public class Bank {
 
 	private Client[] clients;
-	private Logger logger;
-	private Object accountUpdater;
+//	private Logger logger;
+	public Object accountUpdater;
 	private float balance; // bank money from clients commissions
 
 	public void addCommission(float commission) {
@@ -19,7 +19,7 @@ public class Bank {
 	// 2. singleton - the instance
 	private Bank() {
 		clients = new Client[100];
-		logger = new Logger(null);
+//		logger = new Logger(null);
 	}
 
 	// 3. singleton - the getter
@@ -68,16 +68,17 @@ public class Bank {
 	 * removeClient(int id) : void - remove the client with the same id from the
 	 * array (by assigning a 'null' value to the array[position]). Log the operation
 	 */
-	public void removeClient(int clientId) {
+	// 1. change method signature so it get Client instead of int
+	public void removeClient(Client client) {
 		for (int i = 0; i < clients.length; i++) {
 			Client curr = clients[i];
-			if (curr != null && curr.getId() == clientId) {
+			if (curr != null && curr.equals(client)) {
 				clients[i] = null; // remove the client
-				logTheOperation("client removed from bank", curr.getFortune(), clientId);
+				logTheOperation("client removed from bank", curr.getFortune(), client.getId());
 				return;
 			}
 		}
-		System.out.println("client with id " + clientId + " not found");
+		System.out.println(client + " not found");
 	}
 
 	/** get an array of all bank clients (without null elements) */
@@ -108,7 +109,7 @@ public class Bank {
 	private void logTheOperation(String description, float amount, int clientId) {
 		long timestamp = System.currentTimeMillis();
 		Log log = new Log(timestamp, clientId, description, amount);
-		logger.log(log);
+		Logger.log(log);
 	}
 
 	public void viewLogs() {

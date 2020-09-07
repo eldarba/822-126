@@ -20,16 +20,15 @@ public class Log {
 		this.amount = amount;
 	}
 
-	// methods
-	public String getData() {
+	@Override
+	public String toString() {
 		return "Log [timestamp=" + timestamp + ", clientId=" + clientId + ", description=" + description + ", amount="
 				+ amount + "]";
 	}
 
-//	public static void main(String[] args) {
-//		Log log = new Log(System.currentTimeMillis(), 101, "testing", 150);
-//		System.out.println(log);
-//		System.out.println(log.getData());
-//	}
+	public static void main(String[] args) {
+		Log log = new Log(System.currentTimeMillis(), 101, "testing", 150);
+		System.out.println(log);
+	}
 
 }

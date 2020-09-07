@@ -11,15 +11,13 @@ public class Client {
 	protected float commissionRate;
 	protected float interestRate;
 
-	private Logger logger;
-
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		result = prime * result + id;
-//		return result;
-//	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -41,7 +39,6 @@ public class Client {
 		this.id = id;
 		this.name = name;
 		this.balance = balance;
-		logger = new Logger(null);
 	}
 
 	/**
@@ -80,18 +77,18 @@ public class Client {
 	 * money to the clients balance. Log the operation via creating Log object with
 	 * appropriate data and sending it to the Logger.log(..) method.
 	 */
-	public void removeAccount(int accountId) {
+	public void removeAccount(Account account) {
 
 		for (int i = 0; i < accounts.length; i++) {
 			Account curr = accounts[i];
-			if (curr.getId() == accountId) {
+			if (curr != null && curr.equals(account)) {
 				accounts[i] = null; // remove from the array
 				this.balance += curr.getBalance(); // transfers the money to the clients balance
 				logTheOperation("removeAccount from client", curr.getBalance());
 				return; // exit the loop - exit the method
 			}
 		}
-		System.out.println("account with id " + accountId + " not found");
+		System.out.println(account + " not found");
 	}
 
 	/*
@@ -167,7 +164,7 @@ public class Client {
 		long timestamp = System.currentTimeMillis();
 		int clientId = this.id;
 		Log log = new Log(timestamp, clientId, description, amount);
-		logger.log(log);
+		Logger.log(log);
 	}
 
 	public String getName() {

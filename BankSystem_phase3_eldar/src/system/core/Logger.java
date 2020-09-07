@@ -16,8 +16,8 @@ public class Logger {
 	}
 
 	/** implement to print Log on screen */
-	public void log(Log log) {
-		System.out.println(log.getData());
+	public static void log(Log log) {
+		System.out.println(log);
 	}
 
 	/** not supported yet */

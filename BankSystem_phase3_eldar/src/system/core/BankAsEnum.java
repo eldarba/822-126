@@ -5,7 +5,6 @@ public enum BankAsEnum {
 	INSTANCE; // this is the singleton
 
 	private Client[] clients;
-	private Logger logger;
 	private Object accountUpdater;
 	private float balance; // bank money from clients commissions
 
@@ -89,7 +88,7 @@ public enum BankAsEnum {
 	private void logTheOperation(String description, float amount, int clientId) {
 		long timestamp = System.currentTimeMillis();
 		Log log = new Log(timestamp, clientId, description, amount);
-		logger.log(log);
+		Logger.log(log);
 	}
 
 	public void viewLogs() {

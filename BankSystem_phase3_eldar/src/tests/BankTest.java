@@ -6,6 +6,7 @@ import system.core.Account;
 import system.core.Bank;
 import system.core.BankAsEnum;
 import system.core.Client;
+import system.core.RegularClient;
 
 public class BankTest {
 
@@ -47,7 +48,8 @@ public class BankTest {
 		bank.printClientList();
 
 		// remove client 2
-		bank.removeClient(2);
+		Client clientTormove = new RegularClient(2, null, 0);
+		bank.removeClient(clientTormove);
 		System.out.println(Arrays.toString(bank.getClients()));
 
 	}

@@ -8,10 +8,11 @@ public class Demo2ReadWrite {
 
 		try {
 
-			int b = System.in.read();
-			System.out.write(b);
+			int b = System.in.read(); // read
+			System.out.write(b); // write
 
 			while (System.in.available() > 0) {
+				// read and then write
 				System.out.write(System.in.read());
 			}
 

@@ -9,7 +9,7 @@ public class Demo1ReadWrite {
 
 			// read 1 byte using standard input
 			int myByte = System.in.read();
-			System.out.println(myByte);
+			System.out.println(myByte); // print the int value (ASCII)
 
 			// write the byte back to standard out
 			System.out.write(myByte);

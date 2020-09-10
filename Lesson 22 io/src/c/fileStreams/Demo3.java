@@ -10,13 +10,16 @@ public class Demo3 {
 
 	public static void main(String[] args) {
 
+		// append will determine if we add to the file (append) or delete and write new
+		// data
+		boolean append = true;
 		// try with resource - ARM - Auto Resource Management
 		// java will close the resource for us
 		try (
 
 				BufferedReader in = new BufferedReader(new FileReader("files/file1.txt"));
 
-				BufferedWriter out = new BufferedWriter(new FileWriter("files/file2.txt"));
+				BufferedWriter out = new BufferedWriter(new FileWriter("files/file2.txt", append));
 
 		) {
 

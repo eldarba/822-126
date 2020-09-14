@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Tar2B {
+public class Tar02B {
 
 	public static void main(String[] args) {
 

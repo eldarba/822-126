@@ -1,23 +1,20 @@
 package homework.io;
 
+import java.io.Serializable;
+
 /**
  * @author jbt
  *
  */
-public class Person {
+public class Person implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private int id;
 	private String name;
-	private int age;
+	transient private int age; // will not be serialized
 
 	public Person() {
-	}
-
-	public Person(int id, String name, int age) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.age = age;
 	}
 
 	public int getId() {
@@ -41,6 +38,17 @@ public class Person {
 	}
 
 	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Person(int id, String name, int age) {
+		super();
+		this.id = id;
+		this.name = name;
 		this.age = age;
 	}
 

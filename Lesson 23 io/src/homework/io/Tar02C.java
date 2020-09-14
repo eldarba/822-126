@@ -1,7 +1,6 @@
 package homework.io;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -9,18 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.swing.JOptionPane;
-
-public class Tar2CAppend {
+public class Tar02C {
 
 	public static void main(String[] args) {
 
 		File file3 = new File("files/numbers.txt");
 
-		int input = JOptionPane.showConfirmDialog(null, "do you want to append?");
-		System.out.println(input);
-		boolean append = input == 0 ? true : false;
-		try (PrintWriter out = new PrintWriter(new FileWriter(file3, append))) {
+		try (PrintWriter out = new PrintWriter(file3);) {
 
 			List<Integer> list = new ArrayList<Integer>();
 			for (int i = 0; i < 10; i++) {

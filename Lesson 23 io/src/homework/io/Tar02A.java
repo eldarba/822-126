@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Tar2A {
+public class Tar02A {
 
 	public static void main(String[] args) {
 

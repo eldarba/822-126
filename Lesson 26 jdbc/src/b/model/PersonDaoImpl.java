@@ -27,7 +27,7 @@ public class PersonDaoImpl implements PersonDAO {
 	@Override
 	public void savePreparedStatement(Person person) {
 		try (Connection con = DriverManager.getConnection(url);) {
-			// the sql fro PreparedStatements can contain ? marks instead of real values
+			// the sql from PreparedStatements can contain ? marks instead of real values
 			String sql = "insert into person values(?, ?, ?)";
 			// a PreparedStatement object has an sql usually with parameters (?,?,?)
 			PreparedStatement pstmt = con.prepareStatement(sql);

@@ -6,6 +6,8 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/java/servers/rdbms/apache derby/db-derby-10.15.2.0-bin/lib/derbyclient.jar"/>
+	<classpathentry kind="lib" path="resources/ms sql server/mssql-jdbc-8.4.1.jre11.jar"/>
+	<classpathentry kind="lib" path="resources/mysql/mysql-connector-java-8.0.21.jar"/>
+	<classpathentry kind="lib" path="resources/apache derby/derbyclient.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

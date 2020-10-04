@@ -85,7 +85,7 @@ public class PersonDaoImpl implements PersonDAO {
 	@Override
 	public void delete(int id) {
 		try (Connection con = DriverManager.getConnection(url);) {
-			String sql = "delete from person where id = " + id;
+			String sql = "delete from person where id = ?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			// initialize the PreparedStatement parameters
 			pstmt.setInt(1, id);

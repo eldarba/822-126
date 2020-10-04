@@ -67,7 +67,18 @@ public class PersonDaoImpl implements PersonDAO {
 
 	@Override
 	public void update(Person person) {
-		// TODO Auto-generated method stub
+		try (Connection con = DriverManager.getConnection(url);) {
+			String sql = "update person set name=?, age=? where id=?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			// initialize the PreparedStatement parameters
+			pstmt.setString(1, person.getName());
+			pstmt.setInt(2, person.getAge());
+			pstmt.setInt(3, person.getId());
+			// execute
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 

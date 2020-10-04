@@ -84,7 +84,16 @@ public class PersonDaoImpl implements PersonDAO {
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		try (Connection con = DriverManager.getConnection(url);) {
+			String sql = "delete from person where id = " + id;
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			// initialize the PreparedStatement parameters
+			pstmt.setInt(1, id);
+			// execute
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 
 	}
 

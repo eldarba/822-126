@@ -22,12 +22,15 @@ public class Run {
 
 				switch (input) {
 				case "1":
+				case "add":
 					doPlus();
 					break;
 				case "2":
+				case "sub":
 					doMinus();
 					break;
 				case "3":
+				case "mul":
 					try {
 						doMultiply();
 					} catch (CalculatorException e) {
@@ -38,9 +41,11 @@ public class Run {
 					}
 					break;
 				case "5":
+				case "show":
 					doShow();
 					break;
 				case "6":
+				case "clear":
 					doClear();
 					break;
 				case "q":

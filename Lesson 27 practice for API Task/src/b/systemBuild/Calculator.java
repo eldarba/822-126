@@ -29,7 +29,7 @@ public class Calculator {
 	}
 
 	public void showMenu() {
-		System.out.println("=======================");
+		System.out.println("\n=======================");
 		System.out.println("calculator menu");
 		System.out.println("1 ....... add");
 		System.out.println("2 ....... sub");

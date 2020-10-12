@@ -40,6 +40,10 @@ public class Run {
 						System.out.println("the cause of the cause: " + t.getCause()); // print the cause of the cause
 					}
 					break;
+				case "4":
+				case "div":
+					doDivide();
+					break;
 				case "5":
 				case "show":
 					doShow();
@@ -66,11 +70,21 @@ public class Run {
 
 	}
 
+	private static void doDivide() {
+		System.out.print("enter value to divide by: ");
+		try {
+			double val = Double.parseDouble(sc.nextLine());
+			calc.div(val);
+		} catch (NumberFormatException e) {
+			System.out.println("wrong input: " + e.getMessage());
+		}
+	}
+
 	private static void doMultiply() throws CalculatorException {
 		System.out.print("enter value to multiply by: ");
 		try {
 			double val = Double.parseDouble(sc.nextLine());
-			calc.add(val);
+			calc.mul(val);
 		} catch (NumberFormatException e) {
 			throw new CalculatorException("multiplication failed - wrong input", e);
 		}

@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
@@ -27,8 +28,10 @@ public class Demo1 {
 
 		printAnyCollection(list);
 
+		// sort without comparator - natural order
 		list.sort(null);
 		printAnyCollection(list);
+		// sort with comparator - comparator order
 		list.sort(new DateInverseComparator());
 		printAnyCollection(list);
 
@@ -36,8 +39,15 @@ public class Demo1 {
 
 	public static void printAnyCollection(Collection<?> col) {
 		System.out.println("===============");
-		for (Object element : col) {
-			System.out.println(element);
+//		for (Object element : col) {
+//			System.out.println(element);
+//		}
+
+		Iterator<?> it = col.iterator();
+
+		while (it.hasNext()) {
+			Object currElement = it.next();
+			System.out.println(currElement);
 		}
 	}
 
@@ -47,7 +57,7 @@ class DateInverseComparator implements Comparator<Date> {
 
 	@Override
 	public int compare(Date d1, Date d2) {
-		return d2.compareTo(d1);
+		return d1.compareTo(d2) * -1; // invert natural order
 	}
 
 }

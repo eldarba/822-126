@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- well formed xml - correct XML syntax -->
+<!-- valid xml requires schema - another documentation for rules -->
+<people xmlns="http://www.eldar.org/people"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.eldar.org/people people.xsd">
+	<person>
+		<id>101</id>
+		<name>aaaaaaaaaa</name>
+		<age>120</age>
+	</person>
+	<person>
+		<id>102</id>
+		<name>bbb</name>
+		<age>32</age>
+	</person>
+</people>

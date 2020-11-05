@@ -7,10 +7,26 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 	<!-- your beans definitions here -->
-	
-	<bean id="thePerson" class="core.app.classes.Person"></bean>
-	<bean id="car1" class="core.app.classes.cars.FamilyCar"></bean>
-	<bean id="car2" class="core.app.classes.cars.SportsCar"></bean>
+
+	<bean id="thePerson" class="core.app.classes.Person" scope="prototype"></bean>
+
+
+
+	<bean id="horn" class="core.app.classes.cars.SimpleHorn"></bean>
+
+	<bean id="car1" class="core.app.classes.cars.FamilyCar">
+		<!-- ctor injection -->
+		<constructor-arg ref="horn"></constructor-arg>
+		<!-- value injection -->
+		<property name="color" value="Red"></property>
+	</bean>
+
+
+
+	<bean id="car2" class="core.app.classes.cars.SportsCar">
+		<!-- setter injection -->
+		<property name="horn" ref="horn"></property>
+	</bean>
 
 </beans>
 

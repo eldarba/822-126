@@ -16,12 +16,19 @@ public class SpringApplication {
 			Person p2 = (Person) ctx.getBean("thePerson");
 			Person p3 = ctx.getBean(Person.class);
 			
+			System.out.println("===============");
+			System.out.println(p1.hashCode());
+			System.out.println(p2.hashCode());
+			System.out.println(p3.hashCode());
+			System.out.println("===============");
+			
 			System.out.println(p1);
 			System.out.println(p2);
 			System.out.println(p3);
 			
-			Car c1 = ctx.getBean("car2", Car.class);
+			Car c1 = ctx.getBean("car1", Car.class);
 			System.out.println(c1.startDriving());
+			System.out.println(c1.startHonk());
 		}
 
 	}

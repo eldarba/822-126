@@ -10,6 +10,9 @@ public class Person {
 	// default CTOR
 	public Person() {
 	}
+	
+	{System.out.println("person creation");}
+	
 
 	public int getId() {
 		return id;

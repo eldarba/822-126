@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import eldar.model.Person;
+
 @WebServlet({ "/date", "/theDate" })
 public class DateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -17,6 +19,8 @@ public class DateServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		out.println("Today is: " + new Date());
+		
+		Person p = new Person();
 	}
 
 }

@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("prototype")
 public class Car implements Vehicle {
-	
+
 	private Engine engine;
-	
+
 	@Autowired
-	public Car(@Qualifier("carEngine")Engine engine) {
+	public Car(@Qualifier("carEngine") Engine engine) {
 		super();
 		this.engine = engine;
 	}
-	
+
 	public Car() {
 	}
 
@@ -40,7 +40,5 @@ public class Car implements Vehicle {
 	public void setEngine(Engine engine) {
 		this.engine = engine;
 	}
-	
-	
 
 }

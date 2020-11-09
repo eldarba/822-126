@@ -9,9 +9,16 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class Car implements Vehicle {
 	
-	@Autowired
-	@Qualifier("turboEngine") // give component id
 	private Engine engine;
+	
+	@Autowired
+	public Car(@Qualifier("carEngine")Engine engine) {
+		super();
+		this.engine = engine;
+	}
+	
+	public Car() {
+	}
 
 	@Override
 	public void start() {

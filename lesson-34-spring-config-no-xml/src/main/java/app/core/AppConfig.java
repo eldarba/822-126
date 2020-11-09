@@ -28,7 +28,6 @@ public class AppConfig {
 		public Vehicle sportsCar() {
 			Car c = new Car();
 			c.setEngine(new TurboEngine());
-			c.start();
 			return c;
 		}
 		@Bean
@@ -36,7 +35,6 @@ public class AppConfig {
 		public Vehicle familyCar() {
 			Car c = new Car();
 			c.setEngine(new CarEngine());
-			c.start();
 			return c;
 		}
 

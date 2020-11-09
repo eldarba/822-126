@@ -1,6 +1,7 @@
 package app.core.beans.vehicles;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 public class Car implements Vehicle {
 	
 	@Autowired
+	@Qualifier("turboEngine") // give component id
 	private Engine engine;
 
 	@Override
@@ -23,5 +25,15 @@ public class Car implements Vehicle {
 		engine.switchOff();
 		System.out.println("car stopped");
 	}
+
+	public Engine getEngine() {
+		return engine;
+	}
+
+	public void setEngine(Engine engine) {
+		this.engine = engine;
+	}
+	
+	
 
 }

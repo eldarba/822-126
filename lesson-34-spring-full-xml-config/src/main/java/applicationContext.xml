@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- helper beans to be injected -->
+	<bean id="eng1" class="core.app.classes.Engine"></bean>
+	<bean id="eng2" class="core.app.classes.Engine"></bean>
+
+	<!-- setter injection -->
+	<bean id="car1" class="core.app.classes.Car">
+		<property name="number" value="111"></property>
+		<property name="engine" ref="eng1"></property>
+	</bean>
+
+
+	<!-- CTOR injection -->
+	<bean id="car2" class="core.app.classes.Car">
+		<constructor-arg name="number" value="222"></constructor-arg>
+		<constructor-arg name="engine" ref="eng2"></constructor-arg>
+	</bean>
+
+</beans>
+

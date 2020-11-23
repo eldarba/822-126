@@ -3,19 +3,27 @@ package app.core;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-import app.core.beans.MyBean;
+import app.core.dao.company.CompanyDao;
+import app.core.dao.coupon.CouponDao;
 
 @Configuration
 @ComponentScan
+@EnableAspectJAutoProxy
 public class SpringApp {
 
 	public static void main(String[] args) {
 
 		try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringApp.class)) {
-			MyBean bean = ctx.getBean(MyBean.class);
+			CompanyDao companyDao = ctx.getBean(CompanyDao.class);
+			CouponDao couponDaoDao = ctx.getBean(CouponDao.class);
+			// invoke methods
+			companyDao.addCompany(111, "Tadiran");
+			companyDao.sayHello();
 
-			System.out.println("bean " + bean.beanName + " is now active");
+			couponDaoDao.addCoupon();
+			couponDaoDao.doWork();
 
 		}
 

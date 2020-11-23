@@ -10,8 +10,14 @@ public class MyPostProcessor1 implements BeanPostProcessor, Ordered {
 
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-		System.out.println("------ MyPostProcessor1 before bean: " + beanName);
+		System.out.println("------> MyPostProcessor1 before bean: " + beanName);
 		return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
+	}
+
+	@Override
+	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+		System.out.println("<------ MyPostProcessor1 after bean: " + beanName);
+		return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
 	}
 
 	@Override

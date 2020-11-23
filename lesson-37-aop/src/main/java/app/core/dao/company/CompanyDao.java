@@ -13,4 +13,16 @@ public class CompanyDao {
 		System.out.println("hello from CompanyDao");
 	}
 
+	public void getX() {
+
+	}
+
+	public void getY() {
+
+	}
+
+	public void setA() {
+
+	}
+
 }

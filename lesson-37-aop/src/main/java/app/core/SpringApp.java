@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+import app.core.aspects.StatisticsAspect;
 import app.core.dao.company.CompanyDao;
 import app.core.dao.coupon.CouponDao;
 
@@ -24,6 +25,12 @@ public class SpringApp {
 
 			couponDaoDao.addCoupon();
 			couponDaoDao.doWork();
+
+			companyDao.getX();
+			companyDao.getX();
+
+			StatisticsAspect stat = ctx.getBean(StatisticsAspect.class);
+			System.out.println("get counter = " + stat.getGetCounter());
 
 		}
 

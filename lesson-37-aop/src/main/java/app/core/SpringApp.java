@@ -28,9 +28,13 @@ public class SpringApp {
 
 			companyDao.getX();
 			companyDao.getX();
+			companyDao.getY();
+			companyDao.setA();
+			companyDao.setA();
 
 			StatisticsAspect stat = ctx.getBean(StatisticsAspect.class);
 			System.out.println("get counter = " + stat.getGetCounter());
+			System.out.println("set counter = " + stat.getSetCounter());
 
 		}
 

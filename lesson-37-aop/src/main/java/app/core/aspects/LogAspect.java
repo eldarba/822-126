@@ -51,14 +51,4 @@ public class LogAspect {
 		System.out.println(">>> Log add methods");
 	}
 
-	@Before("getters")
-	public void logGetMethods() {
-		System.out.println(">>> Log get methods");
-	}
-
-	@Before("getters && setters")
-	public void logGetSetMethods() {
-		System.out.println(">>> Log get methods");
-	}
-
 }

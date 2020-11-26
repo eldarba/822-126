@@ -2,6 +2,7 @@ package app.core.aspects;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +30,16 @@ public class StatisticsAspect {
 	@Before("app.core.aspects.MyPointcuts.setters()")
 	public void countSetterAdvice() {
 		setCounter++;
+	}
+
+	@Pointcut("execution(* get*(..))")
+	public void getters() {
+
+	}
+
+	@Pointcut("execution(* get*(..))")
+	public void setters() {
+
 	}
 
 }

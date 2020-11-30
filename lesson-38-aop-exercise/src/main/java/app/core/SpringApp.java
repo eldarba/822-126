@@ -7,6 +7,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import app.core.dao.company.Company;
 import app.core.dao.company.CompanyDao;
+import app.core.login.LoginManager;
 
 @Configuration // if you want bean methods
 @ComponentScan // scan classes with @Component
@@ -17,11 +18,19 @@ public class SpringApp {
 
 		try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringApp.class)) {
 
+			LoginManager lm = ctx.getBean(LoginManager.class);
+
+			// first we must login
+			System.out.println("are we logged in? " + lm.isLogged());
+			lm.login("name", "password");
+			System.out.println("are we logged in? " + lm.isLogged());
+
+			// use business methods that requires authorization
 			CompanyDao companyDao = ctx.getBean(CompanyDao.class);
 			companyDao.addCompany(new Company(1L, "AAA"));
 			companyDao.addCompany(new Company(2L, "BBB"));
 			companyDao.addCompany(new Company(3L, "CCC"));
-
+//
 			System.out.println(companyDao.getAllCompanies());
 		}
 

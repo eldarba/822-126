@@ -4,17 +4,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import app.core.login.LoginManager;
 
 @Component
 public class CouponDao {
 
 	private Map<Long, Coupon> map = new HashMap<Long, Coupon>();
-	@Autowired
-	private LoginManager loginManager;
 
 	public void addCoupon(Coupon coupon) {
 		map.put(coupon.getId(), coupon);
@@ -31,10 +26,6 @@ public class CouponDao {
 
 	public boolean deleteCoupon(Long id) {
 		return map.remove(id) != null;
-	}
-
-	public LoginManager getLoginManager() {
-		return loginManager;
 	}
 
 }

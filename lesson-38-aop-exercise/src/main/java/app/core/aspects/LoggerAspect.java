@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 @Order(1)
-public class LogAspect {
+public class LoggerAspect {
 
-	@Before("app.core.aspects.MyPointcuts.addOrDelete()")
+	@Before("app.core.aspects.MyPointcuts.addOrDeleteOrLogin()")
 	public void logAddRemoveAdvice() {
-		System.out.println(">>>Logger Advice: add/delete");
+		System.out.println(">>>Logger Advice: add/delete/login");
 	}
 
 }

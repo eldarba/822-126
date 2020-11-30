@@ -36,4 +36,9 @@ public class MyPointcuts {
 	@Pointcut("allAppMethods() && ! loginMgrMethods()")
 	public void allAppMethodsButLogin() {
 	}
+
+	@Pointcut("execution(* app.core.*..*.get*(..))")
+	public void appGetters() {
+	}
+
 }

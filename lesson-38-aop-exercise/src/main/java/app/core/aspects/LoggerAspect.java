@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class LoggerAspect {
 
 	@Before("app.core.aspects.MyPointcuts.addOrDeleteOrLogin()")
-	public void logAddRemoveAdvice() {
+	public void logAddRemoveLoginAdvice() {
 		System.out.println(">>>Logger Advice: add/delete/login");
 	}
 

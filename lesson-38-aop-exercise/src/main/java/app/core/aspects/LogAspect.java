@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Order(1)
 public class LogAspect {
 
-	// aaa
 	@Before("app.core.aspects.MyPointcuts.addOrDelete()")
 	public void logAddRemoveAdvice() {
 		System.out.println(">>>Logger Advice: add/delete");

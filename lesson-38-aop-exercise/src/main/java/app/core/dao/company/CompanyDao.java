@@ -21,6 +21,9 @@ public class CompanyDao {
 	}
 
 	public Collection<Company> getAllCompanies() {
+		if (Math.random() < 0.5) {
+			throw new RuntimeException("getAllCompanies failed");
+		}
 		return map.values();
 	}
 

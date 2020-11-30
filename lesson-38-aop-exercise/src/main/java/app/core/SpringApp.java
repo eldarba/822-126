@@ -29,12 +29,15 @@ public class SpringApp {
 			// use business methods that requires authorization
 			CompanyDao companyDao = ctx.getBean(CompanyDao.class);
 
-			System.out.println(companyDao.getAllCompanies());
 			companyDao.addCompany(new Company(1L, "AAA"));
 			companyDao.addCompany(new Company(2L, "BBB"));
 			companyDao.addCompany(new Company(3L, "CCC"));
 //
-			System.out.println(companyDao.getAllCompanies());
+			try {
+				System.out.println(companyDao.getAllCompanies());
+			} catch (Exception e) {
+				System.out.println("main app cought exception " + e);
+			}
 
 			StatistcsAspect stats = ctx.getBean(StatistcsAspect.class);
 			System.out.println("getters count: " + stats.getInvokGetcounter());

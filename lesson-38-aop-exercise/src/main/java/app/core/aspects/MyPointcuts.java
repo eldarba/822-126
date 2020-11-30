@@ -41,4 +41,8 @@ public class MyPointcuts {
 	public void appGetters() {
 	}
 
+	@Pointcut("execution(java.util.Collection *(..))")
+	public void collectionGetters() {
+	}
+
 }

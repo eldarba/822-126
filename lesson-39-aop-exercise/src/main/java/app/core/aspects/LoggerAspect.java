@@ -1,12 +1,13 @@
 package app.core.aspects;
 
-import java.sql.SQLException;
 import java.util.Collection;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.core.annotation.Order;
@@ -18,6 +19,34 @@ import app.core.dao.company.Company;
 @Aspect
 @Order(1)
 public class LoggerAspect {
+
+// ========== handling the exception by rethrow it on
+//	@Around("execution(String fetchTraficFoecast())")
+//	public Object aroundFetchTraficAdvice(ProceedingJoinPoint jp) throws Throwable {
+//		System.out.println(">>> around-before on method: " + jp.getSignature().getName());
+//		Object res = null;
+//		try {
+//			res = jp.proceed(); // let the business method run
+//			System.out.println(">>> around-after on method: " + jp.getSignature().getName());
+//		} catch (Exception e) {
+//			System.out.println("Aspect found that there was some error in the service");
+//			throw e;
+//		}
+//		return res;
+//	}
+// ========== handling the exception by providing solution in the advice
+	@Around("execution(String fetchTraficFoecast())")
+	public Object aroundFetchTraficAdvice(ProceedingJoinPoint jp) throws Throwable {
+		System.out.println(">>> around-before on method: " + jp.getSignature().getName());
+		Object res = null;
+		try {
+			res = jp.proceed(); // let the business method run
+			System.out.println(">>> around-after on method: " + jp.getSignature().getName());
+		} catch (Exception e) {
+			res = "Just drive away [this msg is from the aspect]";
+		}
+		return res;
+	}
 
 	@Before("app.core.aspects.MyPointcuts.addOrDeleteOrLogin()")
 	public void logAddRemoveLoginAdvice() {
@@ -42,9 +71,6 @@ public class LoggerAspect {
 
 	@AfterThrowing(pointcut = "app.core.aspects.MyPointcuts.collectionGetters()", throwing = "t")
 	public void getCollectionFailedAdvice(JoinPoint jp, Throwable t) {
-		if (t instanceof SQLException) {
-			System.out.println("send sms to database crew");
-		}
 		System.out.println(">>> getCollectionFailedAdvice on " + jp.getSignature().getName() + "- ex " + t);
 	}
 

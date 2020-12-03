@@ -14,6 +14,7 @@ public class AppConfig {
 		try (AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class)) {
 			System.out.println("nothing");
 			ctx.getBean(MyBean.class);
+			System.out.println(ctx.getBean(MyBean.class).getClass());
 		}
 
 	}

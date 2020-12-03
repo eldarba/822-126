@@ -20,21 +20,12 @@ import app.core.dao.company.Company;
 @Order(1)
 public class LoggerAspect {
 
+	@Before("@annotation(app.core.annotations.MyLogAnnotation)")
+	public void beforeAnnotatedMethod(JoinPoint jp) {
+		System.out.println(">>> LOG before annotated method");
+	}
+
 // ========== handling the exception by rethrow it on
-//	@Around("execution(String fetchTraficFoecast())")
-//	public Object aroundFetchTraficAdvice(ProceedingJoinPoint jp) throws Throwable {
-//		System.out.println(">>> around-before on method: " + jp.getSignature().getName());
-//		Object res = null;
-//		try {
-//			res = jp.proceed(); // let the business method run
-//			System.out.println(">>> around-after on method: " + jp.getSignature().getName());
-//		} catch (Exception e) {
-//			System.out.println("Aspect found that there was some error in the service");
-//			throw e;
-//		}
-//		return res;
-//	}
-// ========== handling the exception by providing solution in the advice
 	@Around("execution(String fetchTraficFoecast())")
 	public Object aroundFetchTraficAdvice(ProceedingJoinPoint jp) throws Throwable {
 		System.out.println(">>> around-before on method: " + jp.getSignature().getName());
@@ -43,10 +34,24 @@ public class LoggerAspect {
 			res = jp.proceed(); // let the business method run
 			System.out.println(">>> around-after on method: " + jp.getSignature().getName());
 		} catch (Exception e) {
-			res = "Just drive away [this msg is from the aspect]";
+			System.out.println("Aspect found that there was some error in the service");
+			throw e;
 		}
 		return res;
 	}
+// ========== handling the exception by providing solution in the advice
+//	@Around("execution(String fetchTraficFoecast())")
+//	public Object aroundFetchTraficAdvice(ProceedingJoinPoint jp) throws Throwable {
+//		System.out.println(">>> around-before on method: " + jp.getSignature().getName());
+//		Object res = null;
+//		try {
+//			res = jp.proceed(); // let the business method run
+//			System.out.println(">>> around-after on method: " + jp.getSignature().getName());
+//		} catch (Exception e) {
+//			res = "Just drive away [this msg is from the aspect]";
+//		}
+//		return res;
+//	}
 
 	@Before("app.core.aspects.MyPointcuts.addOrDeleteOrLogin()")
 	public void logAddRemoveLoginAdvice() {

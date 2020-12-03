@@ -32,6 +32,9 @@ public class SpringApp2Trafic {
 				System.out.println(e);
 			}
 
+			System.out.println("#################");
+			traficService.fetchTraficFoecastAnnotated();
+
 			System.out.println("END");
 
 		}

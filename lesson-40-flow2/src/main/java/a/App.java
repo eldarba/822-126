@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import a.entities.Company;
 import a.entities.CompanyAddress;
 
-public class App2 {
+public class App {
 
 	public static void main(String[] args) {
 
@@ -18,19 +18,8 @@ public class App2 {
 		try {
 			session.getTransaction().begin();
 
-			// getting the company will load its address from the address table
-//			Company company = session.get(Company.class, 4L);
-//
-//			System.out.println(company);
-//			System.out.println(company.getAddress());
-//
-//			company.setAddress(null);
-
-//			CompanyAddress address = company.getAddress();
-
-//			session.delete(company); // delete the company will delete the address - cascade
-			CompanyAddress address = session.get(CompanyAddress.class, 2L);
-			session.delete(address);
+			Company company = new Company("Bank AAA", "bankaaa@mail", new CompanyAddress("Tel Aviv 2", "Israel"));
+			session.save(company);
 
 			session.getTransaction().commit();
 

@@ -1,0 +1,32 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- JDBC Database connection settings -->
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/db3?serverTimezone=Israel&amp;createDatabaseIfNotExist=true</property>
+		<!-- put your own db credentials -->
+		<property name="connection.username">eldar1</property>
+		<property name="connection.password">pass1</property>
+		<!-- JDBC connection pool settings ... using built-in test pool -->
+		<property name="connection.pool_size">6</property>
+		<!-- Select our SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+		<!-- -->
+		<!-- Echo the SQL to stdout -->
+		<property name="show_sql">true</property>
+		<!-- Set the current session context -->
+		<!-- thread = current sessions are tracked by thread of execution -->
+		<property name="current_session_context_class">thread</property>
+		<!-- hbm2ddl options: validate | update | create | create-drop -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+	</session-factory>
+</hibernate-configuration>
+
+<!-- The hibernate.current_session_context_class configuration parameter 
+	defines which org.hibernate.context.spi.CurrentSessionContext implementation 
+	should be used. Typically, the value of this parameter would just name the 
+	implementation class to use. For the three out-of-the-box implementations, 
+	however, there are three corresponding short names: "jta", "thread", and 
+	"managed". -->

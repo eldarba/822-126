@@ -6,27 +6,28 @@ import org.hibernate.cfg.Configuration;
 
 import a.entities.Student;
 
-public class App {
+public class App1Create {
 
 	public static void main(String[] args) {
-
 		// Configuration object holds all configuration data from file and classes
 		Configuration cfg = new Configuration().configure().addAnnotatedClass(Student.class);
-
 		// SessionFactory - gives us session objects - connection
-		try (SessionFactory factory = cfg.buildSessionFactory();) {
+		SessionFactory factory = cfg.buildSessionFactory();
+		Session session = factory.getCurrentSession();
+		try {
 			System.out.println("hibernate runs");
-			// Session - represents a connection and a persistence context - where entities
-			// live
-			Session session = factory.getCurrentSession();
-			Student st = new Student("dan", "dan@email");
+			Student student = new Student("dan", "dan@email");
 			// session operations are bound in a transaction - unit of work
+			System.out.println(session.getTransaction().isActive());
 			session.beginTransaction();
-			session.save(st); // persist an object
+			System.out.println(session.getTransaction().isActive());
+			session.save(student); // persist an object
 			session.getTransaction().commit(); // flush operations to the database
-
+		} catch (Exception e) {
+			session.getTransaction().rollback(); // cancel entire transaction
+		} finally {
+			session.close();
+			factory.close();
 		}
-
 	}
-
 }

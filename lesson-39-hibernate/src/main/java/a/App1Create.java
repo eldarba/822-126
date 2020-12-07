@@ -16,7 +16,7 @@ public class App1Create {
 		Session session = factory.getCurrentSession();
 		try {
 			System.out.println("hibernate runs");
-			Student student = new Student("dan", "dan@email");
+			Student student = new Student("ran", "ran@email");
 			// session operations are bound in a transaction - unit of work
 			System.out.println(session.getTransaction().isActive());
 			session.beginTransaction();

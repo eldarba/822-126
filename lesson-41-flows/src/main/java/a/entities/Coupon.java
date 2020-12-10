@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -21,6 +23,11 @@ public class Coupon {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "coupon_id")
 	private List<Review> reviews;
+
+	@ManyToMany(cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH })
+	@JoinTable(name = "customers_vs_coupons", joinColumns = { @JoinColumn(name = "coupon_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "customer_id") })
+	private List<Customer> customers;
 
 	public Coupon() {
 	}

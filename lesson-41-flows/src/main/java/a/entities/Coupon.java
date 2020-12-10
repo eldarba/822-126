@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,17 +18,16 @@ public class Coupon {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "coupon_id")
 	private List<Review> reviews;
 
 	public Coupon() {
 	}
 
-	public Coupon(String title, List<Review> reviews) {
+	public Coupon(String title) {
 		super();
 		this.title = title;
-		this.reviews = reviews;
 	}
 
 	@Override

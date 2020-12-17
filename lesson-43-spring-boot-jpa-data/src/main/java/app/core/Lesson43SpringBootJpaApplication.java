@@ -22,15 +22,17 @@ public class Lesson43SpringBootJpaApplication {
 		StudentRepository studentRepo = ctx.getBean(StudentRepository.class);
 
 		{
+//			generateRandomStudents(studentRepo, 25);
+		}
 
-			// display number of students of age 25
+		{
+
+			// display number of students of age 56
 			// 1. write a derived method in the repository
 			// 2. call the method in the test
 
 			long x = studentRepo.countByAge(56);
 			System.out.println("number of students aged 56: " + x);
-
-//			generateRandomStudents(studentRepo);
 
 			// get all students older than 75
 //			List<Student> students = studentRepo.getAllStudentsOlderThan(75);
@@ -70,17 +72,17 @@ public class Lesson43SpringBootJpaApplication {
 		}
 	}
 
-	public static void generateRandomStudents(StudentRepository studentRepo) {
+	public static void generateRandomStudents(StudentRepository studentRepo, int amount) {
 
 		String[] names = { "Dan", "Ron", "Dafna", "Yaniv", "Eldar", "Lior", "Maoz" };
 
-		for (int i = 0; i < 25; i++) {
+		for (int i = 0; i < amount; i++) {
 			Student student = new Student();
 			student.setAge((int) (Math.random() * 121));
 			String name = names[(int) (Math.random() * 100) % names.length];
 			student.setName(name);
 			student.setEmail(name + "@mail");
-			student.setGender(Gender.values()[(int) (Math.random() * 2)]);
+			student.setGender(Gender.values()[(int) (Math.random() * Gender.values().length)]);
 			student.setActive(Math.random() < 0.8 ? true : false);
 
 			int year = (int) (Math.random() * 20) + 2000;

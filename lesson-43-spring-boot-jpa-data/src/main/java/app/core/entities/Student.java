@@ -1,5 +1,7 @@
 package app.core.entities;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,11 +14,13 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private int age;
+	private Integer age;
 	private String name;
 	private String email;
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
+	private Boolean active;
+	private LocalDate enrollDate;
 
 	public enum Gender {
 		M, F;
@@ -25,12 +29,34 @@ public class Student {
 	public Student() {
 	}
 
-	public Student(int age, String name, String email, Gender gender) {
+	public Student(Integer age, String name, String email, Gender gender, Boolean active, LocalDate enrollDate) {
 		super();
 		this.age = age;
 		this.name = name;
 		this.email = email;
 		this.gender = gender;
+		this.active = active;
+		this.enrollDate = enrollDate;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+	public LocalDate getEnrollDate() {
+		return enrollDate;
+	}
+
+	public void setEnrollDate(LocalDate enrollDate) {
+		this.enrollDate = enrollDate;
+	}
+
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 
 	public Integer getId() {
@@ -76,7 +102,7 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", age=" + age + ", name=" + name + ", email=" + email + ", gender=" + gender
-				+ "]";
+				+ ", active=" + active + ", enrollDate=" + enrollDate + "]";
 	}
 
 }

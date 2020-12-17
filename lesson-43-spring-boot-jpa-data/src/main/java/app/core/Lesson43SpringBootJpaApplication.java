@@ -1,5 +1,6 @@
 package app.core;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -21,7 +22,28 @@ public class Lesson43SpringBootJpaApplication {
 		StudentRepository studentRepo = ctx.getBean(StudentRepository.class);
 
 		{
-			List<Student> students;
+
+			// display number of students of age 25
+			// 1. write a derived method in the repository
+			// 2. call the method in the test
+
+			long x = studentRepo.countByAge(56);
+			System.out.println("number of students aged 56: " + x);
+
+//			generateRandomStudents(studentRepo);
+
+			// get all students older than 75
+//			List<Student> students = studentRepo.getAllStudentsOlderThan(75);
+			List<Student> students = studentRepo.findByActiveTrue();
+			System.out.println("=== active students");
+			print(students);
+			students = studentRepo.findByActiveFalse();
+			System.out.println("=== inactive students");
+			print(students);
+
+			students = studentRepo.findByAgeBetween(10, 20);
+			System.out.println("=== students aged 10 - 20");
+			print(students);
 		}
 
 		{
@@ -59,6 +81,12 @@ public class Lesson43SpringBootJpaApplication {
 			student.setName(name);
 			student.setEmail(name + "@mail");
 			student.setGender(Gender.values()[(int) (Math.random() * 2)]);
+			student.setActive(Math.random() < 0.8 ? true : false);
+
+			int year = (int) (Math.random() * 20) + 2000;
+			int month = (int) (Math.random() * 12) + 1;
+			int dayOfMonth = (int) (Math.random() * 28) + 1;
+			student.setEnrollDate(LocalDate.of(year, month, dayOfMonth));
 
 			System.out.println(student);
 

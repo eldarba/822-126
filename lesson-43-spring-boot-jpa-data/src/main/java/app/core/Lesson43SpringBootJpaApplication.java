@@ -21,7 +21,7 @@ public class Lesson43SpringBootJpaApplication {
 		StudentRepository studentRepo = ctx.getBean(StudentRepository.class);
 
 		{
-			List<E>
+			List<Student> students;
 		}
 
 		{

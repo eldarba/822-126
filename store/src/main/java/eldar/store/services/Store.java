@@ -35,4 +35,17 @@ public class Store {
 		}
 	}
 
+	public void deleteBasket(Integer basketId) {
+		basketRepository.deleteById(basketId);
+	}
+
+	public Item getItem(Integer id) {
+		Optional<Item> opt = itemRepository.findById(id);
+		if (opt.isPresent()) {
+			return opt.get();
+		}
+
+		return null;
+	}
+
 }

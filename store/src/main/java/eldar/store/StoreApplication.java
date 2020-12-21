@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import eldar.store.entities.Basket;
 import eldar.store.entities.Item;
 import eldar.store.services.Store;
 
@@ -15,12 +14,26 @@ public class StoreApplication {
 		ApplicationContext ctx = SpringApplication.run(StoreApplication.class, args);
 
 		Store store = ctx.getBean(Store.class);
+		{
+//			Basket basket = new Basket("David");
+//			basket.addItem(new Item("Milk", 5, 2));
+//			basket.addItem(new Item("Bread", 8, 1));
+//
+//			store.addBasket(basket);
+		}
 
-		Basket basket = new Basket("David");
-		basket.addItem(new Item("Milk", 5, 2));
-		basket.addItem(new Item("Bread", 8, 1));
+		{
+//			Item item = new Item("AAA", 100, 5);
+//			store.addItem(1, item);
+		}
 
-		store.addBasket(basket);
+		{
+//			store.deleteBasket(2);
+		}
+		{
+			Item item = store.getItem(52);
+			System.out.println(item);
+		}
 	}
 
 }

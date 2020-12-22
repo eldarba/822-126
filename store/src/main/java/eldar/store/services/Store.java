@@ -39,13 +39,42 @@ public class Store {
 		basketRepository.deleteById(basketId);
 	}
 
-	public Item getItem(Integer id) {
-		Optional<Item> opt = itemRepository.findById(id);
+	public Item getItem(Integer itemId) {
+		Optional<Item> opt = itemRepository.findById(itemId);
 		if (opt.isPresent()) {
 			return opt.get();
 		}
 
 		return null;
 	}
+
+	public Basket getBasket(Integer basketId) {
+		Optional<Basket> opt = basketRepository.findById(basketId);
+		if (opt.isPresent()) {
+			return opt.get();
+		}
+		return null;
+	}
+
+	public Basket getBasketByItem(Integer itemId) {
+		Optional<Item> opt = itemRepository.findById(itemId);
+		if (opt.isPresent()) {
+			Item item = opt.get();
+			return item.getBasket();
+		}
+		return null;
+	}
+
+	public Basket getBasketByItem2(Integer itemId) {
+		return basketRepository.findByItemsId(itemId);
+	}
+//	public Basket getBasketByItem2(Integer itemId) {
+//		return basketRepository.findBasketByItemId(itemId);
+//	}
+
+	// add methods:
+	// 0. make the relationship of basket-item bidirectional
+	// 1. get basket by basket id
+	// 2. get basket by item id
 
 }

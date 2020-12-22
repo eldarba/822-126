@@ -8,17 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Basket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String clientName;
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "basket_id")
+	@OneToMany(mappedBy = "basket", cascade = CascadeType.ALL)
 	private List<Item> items;
 
 	public Basket() {

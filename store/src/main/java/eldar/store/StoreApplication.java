@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import eldar.store.entities.Item;
+import eldar.store.entities.Basket;
 import eldar.store.services.Store;
 
 @SpringBootApplication
@@ -31,8 +31,13 @@ public class StoreApplication {
 //			store.deleteBasket(2);
 		}
 		{
-			Item item = store.getItem(52);
-			System.out.println(item);
+//			Item item = store.getItem(52);
+//			System.out.println(item);
+		}
+
+		{
+			Basket basket = store.getBasketByItem2(2);
+			System.out.println(basket);
 		}
 	}
 

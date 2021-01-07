@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/person"
+	xmlns:tns="http://www.example.org/person"
+	elementFormDefault="qualified">
+
+	<element name="person">
+		<complexType>
+			<sequence>
+				<element name="id" type="int"></element>
+				<element name="name" type="string"></element>
+				<element name="age" type="int"></element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 public class Basket {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private int id;
 	private String clientName;
 	@OneToMany(mappedBy = "basket", cascade = CascadeType.ALL)
 	private List<Item> items;
@@ -56,6 +56,7 @@ public class Basket {
 			this.items = new ArrayList<Item>();
 		}
 		this.items.add(item);
+		item.setBasket(this);
 	}
 
 	@Override

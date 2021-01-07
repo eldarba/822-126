@@ -65,9 +65,9 @@ public class Store {
 		return null;
 	}
 
-	public Basket getBasketByItem2(Integer itemId) {
-		return basketRepository.findByItemsId(itemId);
-	}
+//	public Basket getBasketByItem2(Integer itemId) {
+//		return basketRepository.findByItemsId(itemId);
+//	}
 //	public Basket getBasketByItem2(Integer itemId) {
 //		return basketRepository.findBasketByItemId(itemId);
 //	}

@@ -9,6 +9,7 @@ public class MyTest {
 
 	public static void main(String[] args) {
 
+		// create a client stub
 		try {
 			Calculator calculatorStub = new CalculatorProxy().getCalculator();
 			int sum = calculatorStub.add(5, 9);

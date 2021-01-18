@@ -14,22 +14,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
-public class MyController {
+@RequestMapping("/api/text")
+public class MyTextController {
 
 	private List<String> list = new ArrayList<String>();
 
 	// CREATE - add a representation to the server
-	@PostMapping("/hello")
-	public String hello1(@RequestBody String str) {
+	@PostMapping("/text")
+	public String addText(@RequestBody String str) {
 		list.add(str);
 		System.out.println(list);
 		return "hello1 - post";
 	}
 
 	// READ - get a representation from the server
-	@GetMapping("/hello/{index}")
-	public String hello2(@PathVariable int index) {
+	@GetMapping("/text/{index}")
+	public String getText(@PathVariable int index) {
 		String str = null;
 		if (index < list.size()) {
 			str = list.get(index);
@@ -37,14 +37,14 @@ public class MyController {
 		return "hello2 - get: " + str;
 	}
 
-	@GetMapping("/hello")
-	public List<String> hello2All() {
+	@GetMapping("/text")
+	public List<String> getAll() {
 		return list;
 	}
 
 	// UPDATE - update a representation on the server
-	@PutMapping("/hello")
-	public String hello3(@RequestBody String newVal, @RequestParam int index) {
+	@PutMapping("/text")
+	public String updateText(@RequestBody String newVal, @RequestParam int index) {
 		if (index < list.size()) {
 			list.set(index, newVal);
 			return "hello3 - updated";
@@ -54,8 +54,8 @@ public class MyController {
 	}
 
 	// DELETE
-	@DeleteMapping("/hello")
-	public String hello4(@RequestParam(required = false, name = "i") Integer index) {
+	@DeleteMapping("/text")
+	public String deleteText(@RequestParam(required = false, name = "i") Integer index) {
 		if (index == null) {
 			list.remove(list.size() - 1);
 		} else if (index < list.size()) {

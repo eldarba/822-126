@@ -55,7 +55,13 @@ public class MyController {
 
 	// DELETE
 	@DeleteMapping("/hello")
-	public String hello4() {
+	public String hello4(@RequestParam(required = false, name = "i") Integer index) {
+		if (index == null) {
+			list.remove(list.size() - 1);
+		} else if (index < list.size()) {
+			list.remove((int) index);
+		}
 		return "hello4 - delete";
 	}
+
 }

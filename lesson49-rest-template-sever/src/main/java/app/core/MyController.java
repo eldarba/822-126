@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import app.core.beans.Person;
+import app.core.beans.PersonListWrapper;
 
 @RestController
 @RequestMapping("/api")
@@ -30,9 +31,16 @@ public class MyController {
 		return "Hello from greet";
 	}
 
-	@GetMapping(path = "/person", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public Person getPerson() {
-		return new Person(101, "Dan", 33);
+	@GetMapping("/person/all/wrapper")
+	public PersonListWrapper getAllPerson1() {
+		PersonListWrapper wrapper = new PersonListWrapper();
+		wrapper.setPersons(list);
+		return wrapper;
+	}
+
+	@GetMapping("/person/all/list")
+	public List<Person> getAllPerson2() {
+		return list;
 	}
 
 	@GetMapping(path = "/person/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -61,4 +69,8 @@ public class MyController {
 		}
 	}
 
+	@GetMapping("/person")
+	public Person getPerson() {
+		return new Person(101, "Dan", 33);
+	}
 }

@@ -22,7 +22,6 @@ public class RestClient1 {
 			System.out.println(res.getBody());
 
 		} catch (Exception e) {
-
 			System.err.println(e.getMessage());
 		}
 

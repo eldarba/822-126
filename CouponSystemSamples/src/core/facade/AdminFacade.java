@@ -6,12 +6,13 @@ import java.sql.SQLException;
 import core.beans.Company;
 import core.dao.CompanyDao;
 import core.dao.db.CompanyDaoDb;
+import core.exceptions.CouponSystemException;
 
 public class AdminFacade {
 	// facades needs to have access to all dao objects
 	private CompanyDao companyDao = new CompanyDaoDb();
 
-	public void updateCompany(Company company) {
+	public void updateCompany(Company company) throws CouponSystemException {
 		Connection con = null;
 		try {
 			// start transaction

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Forms</h1>
+    <form action="" method="GET">
+      <fieldset style="width: fit-content">
+        <legend>Areas of Interest</legend>
+        <input type="checkbox" id="sport" name="sport" /><label for="sport"
+          >Sport</label
+        >
+        <input type="checkbox" id="reading" name="reading" /><label
+          for="reading"
+          >Reading</label
+        >
+        <input type="checkbox" id="movies" name="movies" /><label for="movies"
+          >Movies</label
+        >
+      </fieldset>
+
+      <fieldset style="width: fit-content">
+        <legend>Operating System</legend>
+        <input id="w" type="radio" name="os" value="windows" /><label for="w"
+          >Windows</label
+        >
+        <input id="m" type="radio" name="os" value="mac" /><label for="m"
+          >MacOS</label
+        >
+        <input id="l" type="radio" name="os" value="linux" /><label for="l"
+          >Linux</label
+        >
+      </fieldset>
+
+      <fieldset>
+        <legend>Country</legend>
+        <select name="state" id="state">
+          <option value="il">Israel</option>
+          <option value="us">USA</option>
+          <option value="fr">France</option>
+        </select>
+      </fieldset>
+
+      <br />
+      <br />
+      <input type="reset" />
+      <br />
+      <br />
+      <input type="submit" value="Submit Data" />
+    </form>
+
+    <hr />
+
+    Some JavaScript
+    <br />
+    <button onclick="f1()">Greet</button>
+
+    <script>
+      function f1() {
+        alert("Good Night");
+      }
+    </script>
+  </body>
+</html>

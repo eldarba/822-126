@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Operators</h1>
+    <script>
+      var x = 5;
+      x += 10;
+
+      console.log(10 % 3);
+
+      x = x ** 3; // x^3
+      console.log(x);
+      console.log("5 ^ 3 = " + 5 ** 3);
+
+      // booleans
+      console.log(5 == 5);
+      console.log(5 == "5"); // true - check for value only
+      console.log(5 === "5"); // false - check for value and type
+
+      console.log(5 != "5"); // false - check for value only
+      console.log(5 !== "5"); // true - check for value only and type
+
+      console.log(5 == 5 && 5 > 3); // true
+      console.log(5 == 15 || 5 > 3); // true
+
+      // type operators
+      // typeof - returns the type of the variable
+      console.log(typeof 5);
+      console.log(typeof 5.6);
+      console.log(typeof "5");
+
+      var date = new Date();
+      console.log(typeof date);
+
+      // instanceof - returns true if an oject is of a certain type
+      console.log(date);
+      console.log(date instanceof Date); // true
+      console.log(date instanceof String); // false
+    </script>
+  </body>
+</html>

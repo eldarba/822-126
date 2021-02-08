@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>User Input</h1>
+
+    <script>
+      // input from user
+      //   var name = prompt("enter name", "default_val");
+      //   alert("hello " + name);
+
+      // A) define a function that get 2 numbers and returns sum
+
+      function sum(a, b) {
+        // to convert string to number use Number(str)
+        var sum = Number(a) + Number(b);
+        return sum;
+      }
+
+      console.log(sum(5, 100));
+
+      // B) get 2 numbers from user and display sum using the function
+      var a = prompt("enter 1st number", 0);
+      var b = prompt("enter 2nd number", 0);
+      var sum = sum(a, b);
+      alert(sum);
+      console.log(sum);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>file 3</h1>
+    <script>
+      {
+        var x = 5; // not restricted to scope
+        let y = 10; // restricted to scope
+        const z = 100;
+        console.log(z); // ok
+        // z = 200; // error
+      }
+
+      console.log(x); // ok
+      // console.log(y); // error
+      // console.log(z); // error
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>file 1</title>
+  </head>
+  <body>
+    <h1>File 1</h1>
+    <script>
+      document.write("text below heading");
+    </script>
+
+    <br />
+    <button onclick="document.write('Hi')">click</button>
+
+    <div id="div1"></div>
+    <div id="div2"></div>
+
+    <!-- JavaScript - local -->
+    <script>
+      // JavaScript goes here
+
+      // output option 1
+      window.document.getElementById("div1").innerHTML = "AAA";
+      // output option 2
+      document.write("hello");
+
+      // output option 3
+      window.alert("Hello JavaScript World!"); // popup
+      // output option 4
+      console.log("Hello JavaScript World!"); // console
+
+      window.alert("Hello JavaScript World!"); // popup
+    </script>
+
+    <!-- JavaScript - external -->
+    <script src="file1.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>file 6 - dynamic typing</h1>
+    <script>
+      var x;
+      console.log(typeof x);
+
+      x = 10;
+      console.log(typeof x);
+
+      x = true;
+      console.log(typeof x);
+
+      x = "Hello";
+      console.log(typeof x);
+
+      x = { id: 101, name: "Dan" };
+      console.log(typeof x);
+
+      x = new Date(2020, 0, 15); // January
+      x = new Date("1956-01-23"); // January
+      console.log(x);
+      console.log(typeof x);
+
+      var y = 10;
+
+      // empty variable
+      x = undefined; // value and type are undefined
+      y = null; // value is undefined, type is object
+
+      console.log(x == y); // true - same value
+      console.log(x === y); // false - not the same type
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Arrays</h1>
+
+    <script>
+      var arr = ["red", "green", "blue"];
+      console.log(arr);
+      var e = arr.shift(); // remove first elemet (returns it) and shift all elements position to the begining
+      console.log(arr);
+      console.log(e);
+
+      var theReturnedLength = arr.unshift("white"); // add element to the start of the array
+      console.log(arr);
+      console.log("the new length: " + theReturnedLength);
+    </script>
+  </body>
+</html>

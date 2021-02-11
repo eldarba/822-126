@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Arrays</h1>
+    <ol id="list"></ol>
+    <script>
+      // array
+      var arr = ["red", "green", "blue"];
+      console.log(arr.join(", "));
+
+      arr.splice(1, 0, "aaa", "bbb");
+      console.log(arr.join(", "));
+
+      /*
+      insert elements from the specified index (1st parameter) 
+      and delete specified number of elements (2nd parameter)
+      rest of parameters are elements to be added from that index
+      */
+
+      // using splice to remove elements
+      arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      console.log(arr.join(", "));
+      arr.splice(5, 1);
+      console.log(arr.join(", "));
+    </script>
+  </body>
+</html>

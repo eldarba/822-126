@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    num 1
+    <div id="div1">25</div>
+    num 2
+    <div id="div2">3.26</div>
+    sum
+    <div id="sum"></div>
+    <script>
+      // get values from document (always text) and convert to number using Number()
+      var x = Number(document.getElementById("div1").innerHTML);
+      var y = Number(document.getElementById("div2").innerHTML);
+
+      document.getElementById("sum").innerHTML = x + y; // arithmetic calculation
+      console.log(x + y);
+    </script>
+  </body>
+</html>

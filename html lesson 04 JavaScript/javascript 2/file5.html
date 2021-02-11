@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Arrays</h1>
+    <div id="elements"></div>
+    <script>
+      // create an array option 1
+      var arr1 = ["aaa", 55, 6, "bbb"]; // recommended
+      // create an array option 2
+      var arr2 = new Array("aaa", 55, 6, "bbb"); //same
+
+      // insert array elements into the html document
+      document.getElementById("elements").innerHTML = arr1;
+
+      // access an array element
+      console.log(arr1[0]);
+      console.log(arr1[1] + arr1[2]);
+
+      // assign value to array element
+      arr1[10] = "Eldar";
+      console.log(arr1.toString());
+      console.log(arr1[5]);
+      console.log(arr1[6]);
+      console.log(arr1[7]);
+      console.log(arr1[8]);
+      console.log(arr1[9]);
+      console.log(arr1[10]);
+    </script>
+  </body>
+</html>

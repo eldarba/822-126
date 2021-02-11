@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Arrays</h1>
+    <ol id="list"></ol>
+    <script>
+      // array
+      var arr = ["red", "green", "blue", "black", "white"];
+
+      // iterate array
+      let str = "";
+      for (i = 0; i < arr.length; i++) {
+        str += "<li>" + arr[i] + "</li>";
+      }
+      console.log(str);
+      document.getElementById("list").innerHTML = str;
+    </script>
+  </body>
+</html>

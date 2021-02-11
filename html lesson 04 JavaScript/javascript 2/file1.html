@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>File 1</h1>
+    <script>
+      // class definition
+      class Person {
+        constructor(id, name, age) {
+          this.id = id;
+          this.name = name;
+          this.age = age;
+        }
+
+        // method
+        getData() {
+          return (
+            "person [" + this.id + ", " + this.name + ", " + this.age + "]"
+          );
+        }
+
+        speak() {
+          console.log(this.name + " is speaking");
+        }
+      }
+
+      let p1 = new Person(101, "aaa");
+      let p2 = new Person(102, "bbb", 33);
+
+      console.log(p1);
+      console.log(p1.getData());
+      p2.speak();
+    </script>
+  </body>
+</html>

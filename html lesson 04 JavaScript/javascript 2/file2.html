@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div1">25</div>
+    <div id="div2">3.26</div>
+    <script>
+      var str1 = "aaa"; // string
+      var str2 = new String("aaa"); // object
+
+      console.log(str1);
+      console.log(str2);
+
+      console.log(str1 == str2); // true - same value
+      console.log(str1 === str2); // false - not the same type
+
+      // ======================
+      // get the values as string
+      var x = document.getElementById("div1").innerHTML;
+      var y = document.getElementById("div2").innerHTML;
+      console.log(x + y); // concat (not a number)
+
+      //   convert text to number option 1 - Number
+      var a = Number(x);
+      var b = Number(y);
+      console.log(a + b); // arithmetic calculation
+
+      //   convert text to number option 2 - parse
+      var n1 = parseInt(y); // convert to number (integer)
+      var n2 = parseFloat(y); // convert to number (decimal)
+      console.log(n1); // integer
+      console.log(n2); // decimal
+      console.log(n1 + n2); // arithmetic calculation
+    </script>
+  </body>
+</html>

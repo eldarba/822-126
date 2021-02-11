@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // class definition
+      class Point {
+        x;
+        y;
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+      }
+
+      // sub class definition
+      class Pixel extends Point {
+        color;
+        constructor(x, y, color) {
+          super(x, y);
+          this.color = color;
+        }
+      }
+
+      // create a Pixel instance
+      let x = new Pixel(4, 8, "red");
+      console.log(x);
+    </script>
+  </body>
+</html>

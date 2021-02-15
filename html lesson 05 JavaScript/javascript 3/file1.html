@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>File 1</h1>
+    <script>
+      let arr = [40, 100, 1, 5, 25, 10];
+      console.log(arr);
+      arr.sort();
+      console.log(arr);
+      arr.sort(comparatorFn);
+      console.log(arr);
+
+      // the call back is used by the sort method on each couple of elements
+      // so the sort method can compare elements
+      function comparatorFn(a, b) {
+        return a - b;
+      }
+    </script>
+  </body>
+</html>

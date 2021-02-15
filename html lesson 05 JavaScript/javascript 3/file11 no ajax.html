@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>File 11 NOT AJAX</h1>
+    <button onclick="getRand()">Random Number</button>
+    <h3>the random value</h3>
+    <div id="rnd"></div>
+
+    <script>
+      "use strict";
+
+      function getRand() {
+        // floor removes the decimal part of the number
+        let r = Math.floor(Math.random() * 101);
+        // we work with DOM - Document Object Model - to insert data into the DOM
+        document.getElementById("rnd").innerHTML = r;
+      }
+    </script>
+  </body>
+</html>

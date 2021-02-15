@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>File 9 switch</h1>
+
+    <script>
+      "use strict";
+
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.setAge(age);
+        }
+
+        setAge(age) {
+          if (age <= 120) {
+            this.age = age;
+          } else {
+            // this is how we throw a JS error
+            let e = new Error("illegal age: " + age);
+            e.name = "AgeError";
+            throw e;
+          }
+        }
+      }
+
+      let p = new Person("aaa", 25);
+      console.log(p);
+      p.setAge(505);
+      console.log(p);
+    </script>
+  </body>
+</html>

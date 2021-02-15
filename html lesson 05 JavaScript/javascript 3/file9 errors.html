@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>File 9 switch</h1>
+
+    <script>
+      "use strict";
+      try {
+        a = 9; // this is error if we are running JS in strict mode
+        console.log(a);
+      } catch (error) {
+        console.log("error");
+        console.dir(error); // shows the fields of the object
+        console.log("error name: ", error.name);
+        console.log("error message: ", error.message);
+        console.log("error stack: ", error.stack);
+      } finally {
+        console.log("finnaly block");
+      }
+
+      console.log("END");
+    </script>
+  </body>
+</html>

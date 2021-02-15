@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>File 12 AJAX</h1>
+    <button onclick="getRandFromServer()">Random Number</button>
+    <h3>the random value</h3>
+    <div id="rnd"></div>
+
+    <script>
+      "use strict";
+
+      // AJAX - Asyncrounous JavaScript and XML
+      // is JavaScript using XMLHttpRequest object for remote server requests
+
+      function getRandFromServer() {
+        // to send request from JS to a server we need a request objet
+        let xhttp = new XMLHttpRequest(); // readyState 0
+        xhttp.onreadystatechange = function (params) {
+          // readyState 2 response headers and status ready
+          if (this.readyState == 2) {
+            console.log("readyState 2 response headers and status ready");
+          }
+          // readyState 3 response body partially ready
+          if (this.readyState == 3) {
+            console.log("readyState 3 response body partially ready");
+          }
+          // console.log(this.readyState);
+          if (this.readyState == 4) {
+            console.log("readyState 4 response body ready");
+            // readyState 4 means the response arived fully from the server
+            document.getElementById("rnd").innerHTML = this.response;
+          }
+        };
+        xhttp.open("GET", "http://localhost:8080/api/rnd"); // readyState 1
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>

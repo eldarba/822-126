@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>File 4 Filter Arrays</h1>
+    <script>
+      var ages = [45, 4, 9, 16, 25];
+      arr2 = ages.filter((v, i, arr) => v > 18);
+
+      console.log(ages);
+      console.log(arr2);
+
+      // filter to get an array of all even numbers
+      even = ages.filter((v, i, arr) => v % 2 == 0);
+      console.log(even);
+    </script>
+  </body>
+</html>

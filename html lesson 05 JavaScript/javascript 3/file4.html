@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>File 4 Filter Arrays</h1>
+    <script>
+      var ages = [45, 4, 9, 16, 25];
+      // filter only ages over 18
+      var arrOver18 = ages.filter(isOver18);
+      console.log(ages);
+      console.log(arrOver18);
+
+      // this function acts as a predicate (condition)
+      // it returns a boolean
+      function isOver18(currValue, currIndex, array) {
+        // this is just for demonstration
+        console.log("current val is: " + currValue + ", index: " + currIndex);
+        return currValue > 18;
+      }
+    </script>
+  </body>
+</html>

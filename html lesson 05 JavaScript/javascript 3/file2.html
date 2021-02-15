@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>File 2</h1>
+    <script>
+      let arr = [40, 100, 1, 5, 25, 10];
+      console.log(arr.join(", "));
+
+      arr.sort();
+      console.log(arr.join(", "));
+
+      // sort using a callback
+      // a callback is a method passed as paramter to some other code
+      // to be invoked whenever that other code decides
+      // anonymous function
+      arr.sort(function (a, b) {
+        return a - b;
+      });
+
+      // arrow function
+      arr.sort((a, b) => a - b);
+
+      // use arraow function to create a reference to  a function
+      var f = (a, b) => a - b;
+      arr.sort(f);
+
+      // print the sorted array
+      console.log(arr.join(", "));
+    </script>
+  </body>
+</html>

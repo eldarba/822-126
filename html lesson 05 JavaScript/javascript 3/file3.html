@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>File 3</h1>
+    <script>
+      // find max in varargs
+      let max = Math.max(3, 5, 7, 8, 1, 3, 11, 4, 5);
+      console.log(max);
+
+      let min = Math.min(3, 5, 7, 8, 1, 3, 11, 4, 5);
+      console.log(min);
+
+      // find max in array
+      let arr = [3, 5, 7, 86, 1, 3, 11, 4, 5];
+      // the apply function exists for all functions
+      // the apply function calls a function with
+      // 1. a given 'this' value
+      // 2. arguments in an array
+      max = Math.max.apply(null, arr);
+      console.log(max);
+
+      console.dir(Math.max);
+
+      // find minimum in array
+      min = Math.min.apply(null, arr);
+      console.log(min);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Store</title>
+  </head>
+  <body style="background-color: darkslategray">
+    <h1>Store of Items</h1>
+    <fieldset>
+      <legend>the store dashboard</legend>
+      <div>id <input type="number" id="id" /></div>
+      <div>name <input type="text" id="name" /></div>
+      <div>price <input type="number" id="price" /></div>
+      <br />
+      <div>
+        <button onclick="save()">Save</button>
+        <button onclick="getOne()">Get One</button>
+        <button onclick="getAll()">Get All</button>
+        <button onclick="update()">Update</button>
+        <button>Delete One</button>
+        <button>Delete All</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Response</legend>
+      <div id="resp"></div>
+    </fieldset>
+
+    <script>
+      function update() {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let item = new Item(id, name, price);
+        // convert a JS object to JSON
+        let itemAsJSON = JSON.stringify(item);
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            console.log(this.response);
+          }
+        };
+        xhttp.open("put", "http://localhost:8080/items");
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(itemAsJSON);
+      }
+      function save() {
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let item = new Item(0, name, price);
+        // convert a JS object to JSON
+        let itemAsJSON = JSON.stringify(item);
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            console.log(this.response);
+          }
+        };
+        xhttp.open("post", "http://localhost:8080/items");
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(itemAsJSON);
+      }
+
+      function getOne() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            document.getElementById("resp").innerHTML = this.response;
+          }
+        };
+        let id = document.getElementById("id").value;
+        xhttp.open("GET", "http://localhost:8080/items/" + id);
+        xhttp.send();
+      }
+
+      function getAll() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            document.getElementById("resp").innerHTML = this.response;
+          }
+        };
+        xhttp.open("GET", "http://localhost:8080/items");
+        xhttp.send();
+        // send the request and:
+        // 2 - headers are ready
+        // 3 - response is partially ready
+        // 4 - response is fully ready
+      }
+
+      // model class
+      class Item {
+        constructor(id, name, price) {
+          this.id = id;
+          this.name = name;
+          this.price = price;
+        }
+      }
+    </script>
+  </body>
+</html>

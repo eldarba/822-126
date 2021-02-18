@@ -22,7 +22,8 @@ public class ItemController {
 	private int currId;
 
 	@PostMapping("/items")
-	public int save(Item item) {
+	public int save(@RequestBody Item item) {
+		System.out.println(item);
 		item.setId(++currId);
 		items.add(item);
 		return currId;

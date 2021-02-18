@@ -3,6 +3,7 @@ package app.core.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import app.core.beans.Item;
 
@@ -34,9 +36,13 @@ public class ItemController {
 		Item item = new Item(id);
 		int i = items.indexOf(item);
 		if (i != -1) {
+//			return ResponseEntity.ok(items.get(i));
 			return items.get(i);
 		} else {
-			return null;
+			String msg = "Item with id " + id + " is not in the system";
+//			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
+//			return null;
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, msg);
 		}
 	}
 

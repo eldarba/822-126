@@ -16,8 +16,8 @@
         <button onclick="getOne()">Get One</button>
         <button onclick="getAll()">Get All</button>
         <button onclick="update()">Update</button>
-        <button>Delete One</button>
-        <button>Delete All</button>
+        <button onclick="deleteOne()">Delete One</button>
+        <button onclick="deleteAll()">Delete All</button>
       </div>
     </fieldset>
 
@@ -27,23 +27,7 @@
     </fieldset>
 
     <script>
-      function update() {
-        let id = document.getElementById("id").value;
-        let name = document.getElementById("name").value;
-        let price = document.getElementById("price").value;
-        let item = new Item(id, name, price);
-        // convert a JS object to JSON
-        let itemAsJSON = JSON.stringify(item);
-        let xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-          if (this.readyState == 4) {
-            console.log(this.response);
-          }
-        };
-        xhttp.open("put", "http://localhost:8080/items");
-        xhttp.setRequestHeader("Content-Type", "application/json");
-        xhttp.send(itemAsJSON);
-      }
+      // CREATE
       function save() {
         let name = document.getElementById("name").value;
         let price = document.getElementById("price").value;
@@ -61,11 +45,22 @@
         xhttp.send(itemAsJSON);
       }
 
+      // READ
       function getOne() {
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
           if (this.readyState == 4) {
-            document.getElementById("resp").innerHTML = this.response;
+            if (this.status == 200) {
+              document.getElementById("resp").innerHTML = this.response;
+            } else {
+              // some error
+              // error response as json - convert to JS Object
+              let resAsObject = JSON.parse(this.response);
+              console.log(resAsObject);
+              let err = resAsObject.error;
+              let msg = resAsObject.message;
+              document.getElementById("resp").innerHTML = err + ": " + msg;
+            }
           }
         };
         let id = document.getElementById("id").value;
@@ -73,6 +68,7 @@
         xhttp.send();
       }
 
+      // READ ALL
       function getAll() {
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -86,6 +82,50 @@
         // 2 - headers are ready
         // 3 - response is partially ready
         // 4 - response is fully ready
+      }
+
+      // UPDATE
+      function update() {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let item = new Item(id, name, price);
+        // convert a JS object to JSON
+        let itemAsJSON = JSON.stringify(item);
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            console.log(this.response);
+          }
+        };
+        xhttp.open("put", "http://localhost:8080/items");
+        xhttp.setRequestHeader("Content-Type", "application/json");
+        xhttp.send(itemAsJSON);
+      }
+
+      // DELETE
+      function deleteOne() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            document.getElementById("resp").innerHTML = this.response;
+          }
+        };
+        let id = document.getElementById("id").value;
+        xhttp.open("delete", "http://localhost:8080/items/" + id);
+        xhttp.send();
+      }
+
+      // DELETE ALL
+      function deleteAll() {
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            document.getElementById("resp").innerHTML = this.response;
+          }
+        };
+        xhttp.open("delete", "http://localhost:8080/items");
+        xhttp.send();
       }
 
       // model class

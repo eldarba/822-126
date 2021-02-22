@@ -23,7 +23,7 @@ public class MyController {
 		return "Hello user";
 	}
 
-	@PostMapping("person")
+	@PostMapping("/person")
 	public String addPerson(@RequestBody Person person) {
 		personMap.put(person.getId(), person);
 		return "person added";

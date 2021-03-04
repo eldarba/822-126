@@ -1,0 +1,29 @@
+h1 {
+  text-align: center;
+  background-color: steelblue;
+}
+
+.centered {
+  text-align: center;
+}
+
+a {
+  background-color: steelblue;
+}
+
+p,
+span {
+  background-color: pink;
+}
+
+#p1 {
+  width: 30%;
+}
+#p2 {
+  width: 50%;
+}
+
+/* we can overide the defailt display */
+#sp1 {
+  display: block;
+}

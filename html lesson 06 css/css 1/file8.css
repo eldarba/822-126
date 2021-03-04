@@ -1,0 +1,26 @@
+body,
+html {
+  height: 200%;
+}
+
+div {
+  width: 100px;
+  height: 100px;
+  background-color: tomato;
+}
+
+#rel {
+  position: relative;
+  top: 50px;
+  left: 130px;
+}
+#abs {
+  position: absolute;
+  left: 180px;
+  bottom: 130px;
+}
+#fix {
+  position: fixed;
+  right: 30px;
+  bottom: 130px;
+}

@@ -1,0 +1,11 @@
+/* comment */
+h2 {
+  text-align: center;
+  font-style: italic;
+}
+
+p {
+  width: 300px;
+  border: solid black;
+  color: blue;
+}

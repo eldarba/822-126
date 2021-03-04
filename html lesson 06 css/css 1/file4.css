@@ -1,0 +1,19 @@
+/* all span elements */
+span {
+  color: seagreen;
+}
+
+/* span in a paragraph - no nececerally direct */
+p span {
+  color: red;
+}
+
+/* span in a paragraph - direct child */
+p > span {
+  background-color: slateblue;
+}
+
+/* span in a link - direct child */
+a > span {
+  background-color: springgreen;
+}

@@ -1,0 +1,13 @@
+div {
+  background-color: lightblue;
+  border: solid black;
+  margin: 5px;
+  text-align: center;
+  width: 150px;
+  float: left;
+}
+
+/* show or hide by condition */
+button {
+  display: none;
+}

@@ -1,0 +1,37 @@
+html {
+  background-color: paleturquoise;
+}
+
+body {
+  background-color: lightgray;
+  margin: 0;
+}
+
+div {
+  background-color: palegreen;
+  margin: 50px;
+  border: 10px solid black;
+  padding: 50px;
+
+  width: 200px;
+  height: 200px;
+
+  box-sizing: border-box;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  border: 5px solid black;
+  padding: 15px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+div#picDiv {
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+}

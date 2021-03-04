@@ -1,0 +1,15 @@
+h1,
+h2 {
+  color: violet;
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* takes precedence because specific */
+h2.theClass {
+  color: green;
+}
+
+p.theClass {
+  color: blue;
+}

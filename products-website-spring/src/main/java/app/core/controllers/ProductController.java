@@ -54,7 +54,7 @@ public class ProductController {
 	public List<Product> read() {
 		try {
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

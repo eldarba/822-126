@@ -44,6 +44,12 @@ public class ProductController {
 	@GetMapping("/read")
 	public Product read(@RequestParam int id) {
 		try {
+
+//			try {
+//				Thread.sleep(2000);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
 			return this.productService.read(id);
 		} catch (ProductWebsiteException e) {
 			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage(), e);

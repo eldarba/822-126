@@ -23,7 +23,7 @@ public class ProductsWebsiteSpringApplication {
 			service.create(new Product(2, "Pie", 25, 30));
 			service.create(new Product(3, "Pizza", 30, 1000));
 			service.create(new Product(4, "Milk", 17, 50));
-//			service.create(new Product(5, "Potatos", 5.80, 700));
+			service.create(new Product(5, "Potatos", 5.80, 700));
 			System.out.println("products ready");
 		} catch (ProductWebsiteException e) {
 			e.printStackTrace();

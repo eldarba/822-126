@@ -1,4 +1,4 @@
-package app.core;
+package app.core.controllers;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import app.core.beans.Person;
-import app.core.beans.PersonListWrapper;
 
 @RestController
 @RequestMapping("/api")
@@ -31,20 +30,11 @@ public class MyController {
 		list.add(new Person(1, "aaa", 11, 1.8F, LocalDate.of(2010, 5, 15)));
 		list.add(new Person(2, "bbb", 22, 1.6F, LocalDate.of(2000, 1, 25)));
 		list.add(new Person(3, "ccc", 33, 2F, LocalDate.of(1990, 9, 12)));
-//		list.add(new Person(2, "bbb", 22));
-//		list.add(new Person(3, "ccc", 33));
 	}
 
 	@GetMapping("/greet")
 	public String greet() {
 		return "Hello from greet";
-	}
-
-	@GetMapping("/person/all/wrapper")
-	public PersonListWrapper getAllPersonInWrapper() {
-		PersonListWrapper wrapper = new PersonListWrapper();
-		wrapper.setPersons(list);
-		return wrapper;
 	}
 
 	@GetMapping("/person/all")

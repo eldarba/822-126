@@ -2,7 +2,7 @@ package app.core;
 
 import org.springframework.web.client.RestTemplate;
 
-import app.core.beans.Person;
+import app.core.beans.simple.Person;
 
 public class RestClient4 {
 

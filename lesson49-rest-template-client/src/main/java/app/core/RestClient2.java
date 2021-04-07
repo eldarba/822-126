@@ -5,7 +5,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import app.core.beans.Person;
+import app.core.beans.simple.Person;
 
 public class RestClient2 {
 

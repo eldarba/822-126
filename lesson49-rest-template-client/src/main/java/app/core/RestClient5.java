@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.web.client.RestTemplate;
 
-import app.core.beans.Person;
-import app.core.beans.PersonListWrapper;
+import app.core.beans.simple.Person;
+import app.core.beans.simple.PersonListWrapper;
 
 public class RestClient5 {
 

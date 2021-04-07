@@ -1,4 +1,4 @@
-package app.core.beans;
+package app.core.beans.simple;
 
 import java.util.List;
 

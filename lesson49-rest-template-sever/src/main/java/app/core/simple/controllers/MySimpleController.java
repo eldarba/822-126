@@ -1,4 +1,4 @@
-package app.core.controllers.simple;
+package app.core.simple.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,19 +17,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import app.core.beans.simple.Person;
-import app.core.beans.simple.PersonListWrapper;
+import app.core.simple.beans.PersonListWrapper;
+import app.core.simple.beans.PersonSimple;
 
 @RestController
 @RequestMapping("/api/simple")
 public class MySimpleController {
 
-	private List<Person> list = new ArrayList<Person>();
+	private List<PersonSimple> list = new ArrayList<PersonSimple>();
 	private int nextId = 4;
 	{
-		list.add(new Person(1, "aaa", 11));
-		list.add(new Person(2, "bbb", 22));
-		list.add(new Person(3, "ccc", 33));
+		list.add(new PersonSimple(1, "aaa", 11));
+		list.add(new PersonSimple(2, "bbb", 22));
+		list.add(new PersonSimple(3, "ccc", 33));
 	}
 
 	@GetMapping("/greet")
@@ -45,13 +45,13 @@ public class MySimpleController {
 	}
 
 	@GetMapping("/person/all")
-	public List<Person> getAllPersonInList() {
+	public List<PersonSimple> getAllPersonInList() {
 		return list;
 	}
 
 	@GetMapping(path = "/person/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public Person getPerson1(@PathVariable int id) {
-		for (Person person : list) {
+	public PersonSimple getPerson1(@PathVariable int id) {
+		for (PersonSimple person : list) {
 			if (person.getId() == id) {
 				return person;
 			}
@@ -60,7 +60,7 @@ public class MySimpleController {
 	}
 
 	@GetMapping(path = "/person", produces = { MediaType.APPLICATION_JSON_VALUE })
-	public Person getPerson2(@RequestParam int id) {
+	public PersonSimple getPerson2(@RequestParam int id) {
 		return getPerson1(id);
 	}
 
@@ -69,7 +69,7 @@ public class MySimpleController {
 	 * in the server
 	 */
 	@PostMapping("/person")
-	public Person addPerson(@RequestBody Person person) {
+	public PersonSimple addPerson(@RequestBody PersonSimple person) {
 		if (person != null) {
 			person.setId(nextId++);
 			list.add(person);
@@ -84,8 +84,8 @@ public class MySimpleController {
 	 * this method gets a person representation and update it if found in the server
 	 */
 	@PutMapping("/person")
-	public Person updatePerson(@RequestBody Person person) {
-		Person p;
+	public PersonSimple updatePerson(@RequestBody PersonSimple person) {
+		PersonSimple p;
 		if (person != null && (p = getPerson1(person.getId())) != null) {
 			p.setAge(person.getAge());
 			p.setName(person.getName());
@@ -97,7 +97,7 @@ public class MySimpleController {
 
 	@DeleteMapping(path = "/person", produces = { MediaType.APPLICATION_JSON_VALUE })
 	public ResponseEntity<String> deletePerson(@RequestParam int id) {
-		Person p = new Person();
+		PersonSimple p = new PersonSimple();
 		p.setId(id);
 		if (this.list.remove(p)) {
 			return ResponseEntity.status(HttpStatus.OK).body("person with id " + id + " deleted");

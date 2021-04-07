@@ -1,18 +1,18 @@
-package app.core.beans.simple;
+package app.core.simple.beans;
 
 import java.util.Objects;
 
-public class Person {
+public class PersonSimple {
 
 	private int id;
 	private String name;
 	private int age;
 
-	public Person() {
+	public PersonSimple() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Person(int id, String name, int age) {
+	public PersonSimple(int id, String name, int age) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -58,10 +58,10 @@ public class Person {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Person)) {
+		if (!(obj instanceof PersonSimple)) {
 			return false;
 		}
-		Person other = (Person) obj;
+		PersonSimple other = (PersonSimple) obj;
 		return id == other.id;
 	}
 

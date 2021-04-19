@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +34,9 @@ public class ProductController {
 	}
 
 	@PostMapping("/create")
-	public Product create(@RequestBody Product product) {
+	public Product create(@RequestBody Product product, @RequestHeader String token, @RequestHeader int num,
+			@RequestHeader String startDate) {
+		System.out.println("======== TOKEN: " + token + ", num=" + num + ", start date is: " + startDate);
 		try {
 			return this.productService.create(product);
 		} catch (ProductWebsiteException e) {

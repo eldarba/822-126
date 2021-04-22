@@ -11,6 +11,9 @@ public class Main {
 		printer = PrinterFactory.creatrPrinter(new HtmlPrinterFactory());
 		printer.print("hello");
 
+		printer = PrinterFactory.creatrPrinter(new XmlPrinterFactory());
+		printer.print("hello");
+
 	}
 
 }
